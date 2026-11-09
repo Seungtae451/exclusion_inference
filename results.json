@@ -99,6 +99,17 @@
       "video": "rtc/subtask-1003.mp4",
       "inference_error": null,
       "prompt": "Put the green object into the bowl."
+    },
+    {
+      "condition": "subtask",
+      "seed": 1004,
+      "excluded": "red",
+      "outcome": "timeout",
+      "elapsed_seconds": 120.0000062584877,
+      "placed": 2,
+      "video": null,
+      "inference_error": null,
+      "prompt": "Put the blue object into the bowl."
     }
   ]
 }
