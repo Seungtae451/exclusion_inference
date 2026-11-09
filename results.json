@@ -231,6 +231,17 @@
       "video": null,
       "inference_error": null,
       "prompt": "Put the yellow object into the bowl."
+    },
+    {
+      "condition": "subtask",
+      "seed": 1010,
+      "excluded": "green",
+      "outcome": "excluded_object_in_bowl",
+      "elapsed_seconds": 23.300001215189695,
+      "placed": 1,
+      "video": null,
+      "inference_error": null,
+      "prompt": "Put the blue object into the bowl."
     }
   ]
 }
