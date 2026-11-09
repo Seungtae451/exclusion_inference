@@ -143,6 +143,17 @@
       "video": null,
       "inference_error": null,
       "prompt": "Put the red object into the bowl."
+    },
+    {
+      "condition": "subtask",
+      "seed": 1006,
+      "excluded": "green",
+      "outcome": "timeout",
+      "elapsed_seconds": 120.0000062584877,
+      "placed": 2,
+      "video": null,
+      "inference_error": null,
+      "prompt": "Put the yellow object into the bowl."
     }
   ]
 }
