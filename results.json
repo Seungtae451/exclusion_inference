@@ -1,0 +1,104 @@
+{
+  "planned_pairs": 20,
+  "runs": [
+    {
+      "condition": "full",
+      "seed": 1000,
+      "excluded": "red",
+      "outcome": "timeout",
+      "elapsed_seconds": 120.0000062584877,
+      "placed": 2,
+      "video": "videos/full-1000.mp4",
+      "inference_error": null,
+      "prompt": "Put all objects except the red object into the bowl."
+    },
+    {
+      "condition": "full",
+      "seed": 1001,
+      "excluded": "blue",
+      "outcome": "timeout",
+      "elapsed_seconds": 120.0000062584877,
+      "placed": 2,
+      "video": "videos/full-1001.mp4",
+      "inference_error": null,
+      "prompt": "Put all objects except the blue object into the bowl."
+    },
+    {
+      "condition": "full",
+      "seed": 1002,
+      "excluded": "green",
+      "outcome": "excluded_object_in_bowl",
+      "elapsed_seconds": 8.933333799242973,
+      "placed": 1,
+      "video": "videos/full-1002.mp4",
+      "inference_error": null,
+      "prompt": "Put all objects except the green object into the bowl."
+    },
+    {
+      "condition": "full",
+      "seed": 1003,
+      "excluded": "yellow",
+      "outcome": "timeout",
+      "elapsed_seconds": 120.0000062584877,
+      "placed": 2,
+      "video": "videos/full-1003.mp4",
+      "inference_error": null,
+      "prompt": "Put all objects except the yellow object into the bowl."
+    },
+    {
+      "condition": "full",
+      "seed": 1004,
+      "excluded": "red",
+      "outcome": "excluded_object_in_bowl",
+      "elapsed_seconds": 15.633334148675203,
+      "placed": 0,
+      "video": "videos/full-1004.mp4",
+      "inference_error": null,
+      "prompt": "Put all objects except the red object into the bowl."
+    },
+    {
+      "condition": "subtask",
+      "seed": 1000,
+      "excluded": "red",
+      "outcome": "timeout",
+      "elapsed_seconds": 120.0000062584877,
+      "placed": 0,
+      "video": "videos/subtask-1000.mp4",
+      "inference_error": null,
+      "prompt": "Put the blue object into the bowl."
+    },
+    {
+      "condition": "subtask",
+      "seed": 1001,
+      "excluded": "blue",
+      "outcome": "success",
+      "elapsed_seconds": 14.766667436808348,
+      "placed": 3,
+      "video": "videos/subtask-1001.mp4",
+      "inference_error": null,
+      "prompt": "Put the yellow object into the bowl."
+    },
+    {
+      "condition": "subtask",
+      "seed": 1002,
+      "excluded": "green",
+      "outcome": "timeout",
+      "elapsed_seconds": 120.0000062584877,
+      "placed": 1,
+      "video": "videos/subtask-1002.mp4",
+      "inference_error": null,
+      "prompt": "Put the red object into the bowl."
+    },
+    {
+      "condition": "subtask",
+      "seed": 1003,
+      "excluded": "yellow",
+      "outcome": "excluded_object_in_bowl",
+      "elapsed_seconds": 15.400000803172588,
+      "placed": 2,
+      "video": "videos/subtask-1003.mp4",
+      "inference_error": null,
+      "prompt": "Put the green object into the bowl."
+    }
+  ]
+}

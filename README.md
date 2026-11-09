@@ -1,3 +1,13 @@
-# Exclusion inference
+# Exclusion Pick-and-Place
 
-Isaac Sim policy rollout comparisons.
+Isaac Sim에서 실행한 π₀.₅ 롤아웃을 비교하는 정적 페이지입니다. 시드 1000–1019를 사용하며, 제외 색마다 5개 배치를 두 조건에서 반복해 총 40회 평가합니다. 부분 결과에는 실제로 저장된 시도만 집계합니다.
+
+각 롤아웃은 시뮬레이션 시간 120초로 제한합니다. 정책은 관절 위치 목표를 16개씩 반환하며, 30Hz로 처음 4개를 적용하고 다시 추론합니다. 지시문이 바뀌면 새 지시문으로 즉시 추론합니다. 세 블록 배치 판정 후 추가 1초 동안 상태가 유지되면 성공입니다. 제외 블록이 그릇에 들어가거나 물체가 떨어지면 실패로 기록합니다.
+
+- `index.html`과 `report.js`는 페이지와 결과 표시를 담당합니다.
+- `results.json`의 `planned_pairs`는 평가 계획의 시드 쌍 수입니다. `runs`에는 시드별 평가 상태와 상대 영상 경로를 기록합니다.
+- `videos/`는 HTML과 함께 게시할 MP4 파일을 담습니다. JSON에서 영상이 있는 시드를 영상 선택 목록에 표시합니다.
+
+프로젝트 루트에서 `python3 -m http.server 8080 --directory inference_site`를 실행하고 `http://localhost:8080/`에서 확인할 수 있습니다.
+
+GitHub Pages로 게시하려면 이 디렉터리 안의 파일을 저장소의 게시 루트 또는 `docs/`에 넣고, 저장소의 **Settings → Pages**에서 해당 브랜치와 디렉터리를 선택합니다. `.nojekyll`과 영상의 상대 경로를 포함해 주세요.
