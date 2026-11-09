@@ -35,6 +35,17 @@
       "prompt": "Put all objects except the green object into the bowl."
     },
     {
+      "condition": "full",
+      "seed": 1003,
+      "excluded": "yellow",
+      "outcome": "timeout",
+      "elapsed_seconds": 120.0000062584877,
+      "placed": 2,
+      "video": "rtc/full-1003.mp4",
+      "inference_error": null,
+      "prompt": "Put all objects except the yellow object into the bowl."
+    },
+    {
       "condition": "subtask",
       "seed": 1000,
       "excluded": "red",
