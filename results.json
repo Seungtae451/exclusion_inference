@@ -57,6 +57,28 @@
       "prompt": "Put all objects except the red object into the bowl."
     },
     {
+      "condition": "full",
+      "seed": 1005,
+      "excluded": "blue",
+      "outcome": "timeout",
+      "elapsed_seconds": 120.0000062584877,
+      "placed": 1,
+      "video": "videos/full-1005.mp4",
+      "inference_error": null,
+      "prompt": "Put all objects except the blue object into the bowl."
+    },
+    {
+      "condition": "full",
+      "seed": 1006,
+      "excluded": "green",
+      "outcome": "success",
+      "elapsed_seconds": 57.50000299885869,
+      "placed": 3,
+      "video": "videos/full-1006.mp4",
+      "inference_error": null,
+      "prompt": "Put all objects except the green object into the bowl."
+    },
+    {
       "condition": "subtask",
       "seed": 1000,
       "excluded": "red",
@@ -97,6 +119,50 @@
       "elapsed_seconds": 15.400000803172588,
       "placed": 2,
       "video": "videos/subtask-1003.mp4",
+      "inference_error": null,
+      "prompt": "Put the green object into the bowl."
+    },
+    {
+      "condition": "subtask",
+      "seed": 1004,
+      "excluded": "red",
+      "outcome": "timeout",
+      "elapsed_seconds": 120.0000062584877,
+      "placed": 1,
+      "video": "videos/subtask-1004.mp4",
+      "inference_error": null,
+      "prompt": "Put the blue object into the bowl."
+    },
+    {
+      "condition": "subtask",
+      "seed": 1005,
+      "excluded": "blue",
+      "outcome": "timeout",
+      "elapsed_seconds": 120.0000062584877,
+      "placed": 0,
+      "video": "videos/subtask-1005.mp4",
+      "inference_error": null,
+      "prompt": "Put the red object into the bowl."
+    },
+    {
+      "condition": "subtask",
+      "seed": 1006,
+      "excluded": "green",
+      "outcome": "success",
+      "elapsed_seconds": 18.500000964850187,
+      "placed": 3,
+      "video": "videos/subtask-1006.mp4",
+      "inference_error": null,
+      "prompt": "Put the yellow object into the bowl."
+    },
+    {
+      "condition": "subtask",
+      "seed": 1007,
+      "excluded": "yellow",
+      "outcome": "success",
+      "elapsed_seconds": 13.10000068321824,
+      "placed": 3,
+      "video": "videos/subtask-1007.mp4",
       "inference_error": null,
       "prompt": "Put the green object into the bowl."
     }
