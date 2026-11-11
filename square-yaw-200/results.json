@@ -110,6 +110,17 @@
       "video": "videos/full-1009.mp4",
       "inference_error": null,
       "prompt": "Put all the blocks in the bowl one at a time except the blue block"
+    },
+    {
+      "condition": "subtask",
+      "seed": 1000,
+      "excluded": "red",
+      "outcome": "object_dropped",
+      "elapsed_seconds": 31.066668286919594,
+      "placed": 0,
+      "video": "videos/subtask-1000.mp4",
+      "inference_error": null,
+      "prompt": "Put all the blocks in the bowl one at a time except the red block"
     }
   ]
 }
