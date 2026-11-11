@@ -198,6 +198,17 @@
       "video": "videos/subtask-1007.mp4",
       "inference_error": null,
       "prompt": "Put all the blocks in the bowl one at a time except the yellow block"
+    },
+    {
+      "condition": "subtask",
+      "seed": 1008,
+      "excluded": "red",
+      "outcome": "timeout",
+      "elapsed_seconds": 120.0000062584877,
+      "placed": 0,
+      "video": "videos/subtask-1008.mp4",
+      "inference_error": null,
+      "prompt": "Put all the blocks in the bowl one at a time except the red block"
     }
   ]
 }
