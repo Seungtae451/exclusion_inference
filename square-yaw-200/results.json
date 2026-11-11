@@ -77,6 +77,39 @@
       "video": "videos/full-1006.mp4",
       "inference_error": null,
       "prompt": "Put all the blocks in the bowl one at a time except the green block"
+    },
+    {
+      "condition": "full",
+      "seed": 1007,
+      "excluded": "yellow",
+      "outcome": "timeout",
+      "elapsed_seconds": 120.0000062584877,
+      "placed": 0,
+      "video": "videos/full-1007.mp4",
+      "inference_error": null,
+      "prompt": "Put all the blocks in the bowl one at a time except the yellow block"
+    },
+    {
+      "condition": "full",
+      "seed": 1008,
+      "excluded": "red",
+      "outcome": "excluded_object_in_bowl",
+      "elapsed_seconds": 10.266667202115059,
+      "placed": 0,
+      "video": "videos/full-1008.mp4",
+      "inference_error": null,
+      "prompt": "Put all the blocks in the bowl one at a time except the red block"
+    },
+    {
+      "condition": "full",
+      "seed": 1009,
+      "excluded": "blue",
+      "outcome": "timeout",
+      "elapsed_seconds": 120.0000062584877,
+      "placed": 0,
+      "video": "videos/full-1009.mp4",
+      "inference_error": null,
+      "prompt": "Put all the blocks in the bowl one at a time except the blue block"
     }
   ]
 }
