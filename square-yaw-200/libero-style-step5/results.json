@@ -1,0 +1,157 @@
+{
+  "action_hz": 15,
+  "rtc": false,
+  "camera_sync": true,
+  "summary": {
+    "full": {
+      "step16": {
+        "successes": 0,
+        "placed": 3
+      },
+      "step5": {
+        "successes": 0,
+        "placed": 1
+      }
+    },
+    "subtask": {
+      "step16": {
+        "successes": 0,
+        "placed": 2
+      },
+      "step5": {
+        "successes": 0,
+        "placed": 1
+      }
+    }
+  },
+  "runs": [
+    {
+      "seed": 1000,
+      "model": "full",
+      "excluded": "red",
+      "step16": {
+        "outcome": "timeout",
+        "placed": 0,
+        "elapsed_seconds": 120.0
+      },
+      "step5": {
+        "outcome": "timeout",
+        "placed": 0,
+        "elapsed_seconds": 120.0
+      },
+      "video": "full-1000.mp4"
+    },
+    {
+      "seed": 1000,
+      "model": "subtask",
+      "excluded": "red",
+      "step16": {
+        "outcome": "timeout",
+        "placed": 0,
+        "elapsed_seconds": 120.0
+      },
+      "step5": {
+        "outcome": "object_dropped",
+        "placed": 0,
+        "elapsed_seconds": 19.47
+      },
+      "video": "subtask-1000.mp4"
+    },
+    {
+      "seed": 1001,
+      "model": "full",
+      "excluded": "blue",
+      "step16": {
+        "outcome": "timeout",
+        "placed": 0,
+        "elapsed_seconds": 120.0
+      },
+      "step5": {
+        "outcome": "timeout",
+        "placed": 0,
+        "elapsed_seconds": 120.0
+      },
+      "video": "full-1001.mp4"
+    },
+    {
+      "seed": 1001,
+      "model": "subtask",
+      "excluded": "blue",
+      "step16": {
+        "outcome": "timeout",
+        "placed": 1,
+        "elapsed_seconds": 120.0
+      },
+      "step5": {
+        "outcome": "timeout",
+        "placed": 0,
+        "elapsed_seconds": 120.0
+      },
+      "video": "subtask-1001.mp4"
+    },
+    {
+      "seed": 1002,
+      "model": "full",
+      "excluded": "green",
+      "step16": {
+        "outcome": "timeout",
+        "placed": 2,
+        "elapsed_seconds": 120.0
+      },
+      "step5": {
+        "outcome": "excluded_object_in_bowl",
+        "placed": 0,
+        "elapsed_seconds": 14.73
+      },
+      "video": "full-1002.mp4"
+    },
+    {
+      "seed": 1002,
+      "model": "subtask",
+      "excluded": "green",
+      "step16": {
+        "outcome": "timeout",
+        "placed": 1,
+        "elapsed_seconds": 120.0
+      },
+      "step5": {
+        "outcome": "timeout",
+        "placed": 1,
+        "elapsed_seconds": 120.0
+      },
+      "video": "subtask-1002.mp4"
+    },
+    {
+      "seed": 1003,
+      "model": "full",
+      "excluded": "yellow",
+      "step16": {
+        "outcome": "timeout",
+        "placed": 1,
+        "elapsed_seconds": 120.0
+      },
+      "step5": {
+        "outcome": "timeout",
+        "placed": 1,
+        "elapsed_seconds": 120.0
+      },
+      "video": "full-1003.mp4"
+    },
+    {
+      "seed": 1003,
+      "model": "subtask",
+      "excluded": "yellow",
+      "step16": {
+        "outcome": "excluded_object_in_bowl",
+        "placed": 0,
+        "elapsed_seconds": 29.73
+      },
+      "step5": {
+        "outcome": "timeout",
+        "placed": 0,
+        "elapsed_seconds": 120.0
+      },
+      "video": "subtask-1003.mp4"
+    }
+  ]
+}

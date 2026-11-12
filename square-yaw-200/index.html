@@ -53,8 +53,8 @@
     footer { padding:24px 0 36px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
     :focus-visible { outline:2px solid var(--green); outline-offset:3px; }
 
-    #open-loop details { border-top:1px solid var(--line); padding:12px 0; }
-    #open-loop summary { cursor:pointer; font-weight:600; }
+    #libero-style details, #open-loop details { border-top:1px solid var(--line); padding:12px 0; }
+    #libero-style summary, #open-loop summary { cursor:pointer; font-weight:600; }
     #open-loop figure { margin:12px 0 0; }
     #open-loop figcaption { margin-bottom:6px; }
     #open-loop img { display:block; width:100%; height:auto; background:var(--white); }
@@ -74,7 +74,7 @@
   <header class="masthead">
     <div class="wrap">
       <span class="brand">ISAAC SIM / POLICY EVALUATION</span>
-      <nav aria-label="평가 결과"><a href="#results">실행 결과</a> · <a href="#open-loop">오픈루프</a> · <a href="#subtask-40k">Subtask 40k</a></nav>
+      <nav aria-label="평가 결과"><a href="#results">실행 결과</a> · <a href="#open-loop">오픈루프</a> · <a href="#subtask-40k">Subtask 40k</a> · <a href="#libero-style">5스텝 평가</a></nav>
     </div>
   </header>
   <main class="wrap">
@@ -219,6 +219,75 @@
           <div class="film"><video controls preload="none" playsinline aria-label="40k Subtask 시드 1003 평가 영상" style="display:block;width:100%;height:auto"><source src="./subtask-40k-step16/subtask-1003.mp4" type="video/mp4"></video></div>
         </article>
       </div>
+    </section>
+
+    <section class="panel" id="libero-style" aria-labelledby="libero-style-title">
+      <h2 id="libero-style-title">LIBERO 방식의 5스텝 재평가</h2>
+      <p class="muted">공식 OpenPI LIBERO 예제처럼 5개 동작을 실행한 뒤 새 관측으로 추론했습니다. Panda IK에 사용한 15Hz 제어와 카메라 동기화, 120초 제한을 유지했습니다. 기존 16스텝 평가와 같은 체크포인트 및 시드에서 비교했습니다.</p>
+      <p><a href="https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/examples/libero/main.py">OpenPI 평가 코드</a> · <a href="./libero-style-step5/results.json">상세 결과 JSON</a></p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">시드</th><th scope="col">일반 20k · 16스텝</th><th scope="col">일반 20k · 5스텝</th><th scope="col">Subtask 40k · 16스텝</th><th scope="col">Subtask 40k · 5스텝</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1000</th><td>타임아웃 · 0/3</td><td>타임아웃 · 0/3</td><td>타임아웃 · 0/3</td><td>큐브 떨어짐 · 0/3</td></tr>
+            <tr><th scope="row">1001</th><td>타임아웃 · 0/3</td><td>타임아웃 · 0/3</td><td>타임아웃 · 1/3</td><td>타임아웃 · 0/3</td></tr>
+            <tr><th scope="row">1002</th><td>타임아웃 · 2/3</td><td>금지 큐브 투입 · 0/3</td><td>타임아웃 · 1/3</td><td>타임아웃 · 1/3</td></tr>
+            <tr><th scope="row">1003</th><td>타임아웃 · 1/3</td><td>타임아웃 · 1/3</td><td>금지 큐브 투입 · 0/3</td><td>타임아웃 · 0/3</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <details open>
+        <summary>시드 1000 영상</summary>
+        <div class="comparison">
+          <article class="clip">
+            <header><h3>일반 π₀.₅ 20k</h3><p class="muted">타임아웃 · 0/3 · 120.00초</p></header>
+            <div class="film"><video controls preload="none" playsinline aria-label="일반 π₀.₅ 20k 시드 1000 평가 영상" style="display:block;width:100%;height:auto"><source src="./libero-style-step5/full-1000.mp4" type="video/mp4"></video></div>
+          </article>
+          <article class="clip">
+            <header><h3>Subtask 40k</h3><p class="muted">큐브 떨어짐 · 0/3 · 19.47초</p></header>
+            <div class="film"><video controls preload="none" playsinline aria-label="Subtask 40k 시드 1000 평가 영상" style="display:block;width:100%;height:auto"><source src="./libero-style-step5/subtask-1000.mp4" type="video/mp4"></video></div>
+          </article>
+        </div>
+      </details>
+      <details>
+        <summary>시드 1001 영상</summary>
+        <div class="comparison">
+          <article class="clip">
+            <header><h3>일반 π₀.₅ 20k</h3><p class="muted">타임아웃 · 0/3 · 120.00초</p></header>
+            <div class="film"><video controls preload="none" playsinline aria-label="일반 π₀.₅ 20k 시드 1001 평가 영상" style="display:block;width:100%;height:auto"><source src="./libero-style-step5/full-1001.mp4" type="video/mp4"></video></div>
+          </article>
+          <article class="clip">
+            <header><h3>Subtask 40k</h3><p class="muted">타임아웃 · 0/3 · 120.00초</p></header>
+            <div class="film"><video controls preload="none" playsinline aria-label="Subtask 40k 시드 1001 평가 영상" style="display:block;width:100%;height:auto"><source src="./libero-style-step5/subtask-1001.mp4" type="video/mp4"></video></div>
+          </article>
+        </div>
+      </details>
+      <details>
+        <summary>시드 1002 영상</summary>
+        <div class="comparison">
+          <article class="clip">
+            <header><h3>일반 π₀.₅ 20k</h3><p class="muted">금지 큐브 투입 · 0/3 · 14.73초</p></header>
+            <div class="film"><video controls preload="none" playsinline aria-label="일반 π₀.₅ 20k 시드 1002 평가 영상" style="display:block;width:100%;height:auto"><source src="./libero-style-step5/full-1002.mp4" type="video/mp4"></video></div>
+          </article>
+          <article class="clip">
+            <header><h3>Subtask 40k</h3><p class="muted">타임아웃 · 1/3 · 120.00초</p></header>
+            <div class="film"><video controls preload="none" playsinline aria-label="Subtask 40k 시드 1002 평가 영상" style="display:block;width:100%;height:auto"><source src="./libero-style-step5/subtask-1002.mp4" type="video/mp4"></video></div>
+          </article>
+        </div>
+      </details>
+      <details>
+        <summary>시드 1003 영상</summary>
+        <div class="comparison">
+          <article class="clip">
+            <header><h3>일반 π₀.₅ 20k</h3><p class="muted">타임아웃 · 1/3 · 120.00초</p></header>
+            <div class="film"><video controls preload="none" playsinline aria-label="일반 π₀.₅ 20k 시드 1003 평가 영상" style="display:block;width:100%;height:auto"><source src="./libero-style-step5/full-1003.mp4" type="video/mp4"></video></div>
+          </article>
+          <article class="clip">
+            <header><h3>Subtask 40k</h3><p class="muted">타임아웃 · 0/3 · 120.00초</p></header>
+            <div class="film"><video controls preload="none" playsinline aria-label="Subtask 40k 시드 1003 평가 영상" style="display:block;width:100%;height:auto"><source src="./libero-style-step5/subtask-1003.mp4" type="video/mp4"></video></div>
+          </article>
+        </div>
+      </details>
     </section>
   </main>
   <footer><div class="wrap">Isaac Sim · Franka Panda · Exclusion Pick-and-Place</div></footer>
