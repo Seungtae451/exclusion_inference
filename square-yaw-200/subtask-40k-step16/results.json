@@ -1,0 +1,70 @@
+{
+  "checkpoint": 39999,
+  "baseline_checkpoint": 19999,
+  "action_hz": 15,
+  "action_steps": 16,
+  "rtc": false,
+  "camera_sync": true,
+  "runs": [
+    {
+      "seed": 1000,
+      "excluded": "red",
+      "20k": {
+        "outcome": "timeout",
+        "elapsed_seconds": 120.0,
+        "placed": 1
+      },
+      "40k": {
+        "outcome": "timeout",
+        "elapsed_seconds": 120.0,
+        "placed": 0
+      },
+      "video": "subtask-1000.mp4"
+    },
+    {
+      "seed": 1001,
+      "excluded": "blue",
+      "20k": {
+        "outcome": "timeout",
+        "elapsed_seconds": 120.0,
+        "placed": 0
+      },
+      "40k": {
+        "outcome": "timeout",
+        "elapsed_seconds": 120.0,
+        "placed": 1
+      },
+      "video": "subtask-1001.mp4"
+    },
+    {
+      "seed": 1002,
+      "excluded": "green",
+      "20k": {
+        "outcome": "timeout",
+        "elapsed_seconds": 120.0,
+        "placed": 1
+      },
+      "40k": {
+        "outcome": "timeout",
+        "elapsed_seconds": 120.0,
+        "placed": 1
+      },
+      "video": "subtask-1002.mp4"
+    },
+    {
+      "seed": 1003,
+      "excluded": "yellow",
+      "20k": {
+        "outcome": "excluded_object_in_bowl",
+        "elapsed_seconds": 23.47,
+        "placed": 0
+      },
+      "40k": {
+        "outcome": "excluded_object_in_bowl",
+        "elapsed_seconds": 29.73,
+        "placed": 0
+      },
+      "video": "subtask-1003.mp4"
+    }
+  ]
+}
