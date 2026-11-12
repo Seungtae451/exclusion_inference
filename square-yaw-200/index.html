@@ -52,6 +52,13 @@
     .method p { color:var(--muted); margin:8px 0 0; }
     footer { padding:24px 0 36px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
     :focus-visible { outline:2px solid var(--green); outline-offset:3px; }
+
+    #open-loop details { border-top:1px solid var(--line); padding:12px 0; }
+    #open-loop summary { cursor:pointer; font-weight:600; }
+    #open-loop figure { margin:12px 0 0; }
+    #open-loop figcaption { margin-bottom:6px; }
+    #open-loop img { display:block; width:100%; height:auto; background:var(--white); }
+    .open-loop-note { margin-top:14px; }
     @media (max-width:650px) {
       .wrap { width:calc(100% - 30px); }
       .comparison,.method { grid-template-columns:1fr; }
@@ -66,7 +73,7 @@
   <header class="masthead">
     <div class="wrap">
       <span class="brand">ISAAC SIM / POLICY EVALUATION</span>
-      <a href="#results">결과 보기 ↓</a>
+      <nav aria-label="평가 결과"><a href="#results">실행 결과</a> · <a href="#open-loop">오픈루프</a></nav>
     </div>
   </header>
   <main class="wrap">
@@ -124,6 +131,52 @@
         <article><h3>성공 판정</h3><p>시뮬레이션 시간 120초 안에 대상 세 블록이 모두 그릇 안에 안정적으로 놓였다는 판정 후 추가 1초 동안 상태가 유지되면 성공입니다. 제외 블록이 그릇에 들어가거나 물체가 떨어지면 실패로 기록합니다. 제외 블록 접촉은 허용합니다.</p></article>
         <article><h3>액션 적용</h3><p>정책이 반환한 DROID 관절 속도 명령을 15 Hz로 적용합니다. 추론당 16개 액션 중 처음 4개를 실행한 후 다시 추론합니다.</p></article>
       </div>
+    </section>
+
+    <section class="panel" id="open-loop" aria-labelledby="open-loop-title">
+      <h2 id="open-loop-title">오픈루프 평가</h2>
+      <p class="muted">금지 색상별 학습 시연 1개씩 총 4개에서 16프레임마다 관측을 읽었습니다. 두 모델에 동일한 관측 203개를 입력하고, 예측한 16개 동작 중 첫 동작을 시연의 동작과 비교했습니다.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">지표</th><th scope="col">일반 π₀.₅</th><th scope="col">Subtask π₀.₅</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">관절 속도 RMSE</th><td>0.043</td><td>0.083</td></tr>
+            <tr><th scope="row">움직임이 큰 표본의 관절 속도 RMSE</th><td>0.039</td><td>0.085</td></tr>
+            <tr><th scope="row">그리퍼 열림·닫힘 일치</th><td>199/203</td><td>198/203</td></tr>
+            <tr><th scope="row">전체 관절 제곱오차에서 7번 관절 비중</th><td>25%</td><td>55%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted open-loop-note">관절 속도는 정규화 단위입니다. 움직임이 큰 표본 173개는 시연에서 관절 하나 이상의 속도 명령 절댓값이 0.15 이상인 경우입니다.</p>
+      <p><a href="./open-loop/summary.json">상세 지표 JSON</a> · <a href="https://github.com/wuji-technology/wuji-openpi/blob/be6b32540546fb4fdd274f5cc86a7f9a67148a4c/examples/open_loop_eval.py">Wuji-OpenPI 평가 코드</a></p>
+      <details open>
+        <summary>시연 0 · 빨강 제외</summary>
+        <div class="comparison">
+          <figure><figcaption>일반 π₀.₅</figcaption><a href="./open-loop/full/episode_0.png"><img src="./open-loop/full/episode_0.png" alt="시연 0에서 일반 π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+          <figure><figcaption>Subtask π₀.₅</figcaption><a href="./open-loop/subtask/episode_0.png"><img src="./open-loop/subtask/episode_0.png" alt="시연 0에서 Subtask π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+        </div>
+      </details>
+      <details>
+        <summary>시연 50 · 파랑 제외</summary>
+        <div class="comparison">
+          <figure><figcaption>일반 π₀.₅</figcaption><a href="./open-loop/full/episode_50.png"><img src="./open-loop/full/episode_50.png" alt="시연 50에서 일반 π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+          <figure><figcaption>Subtask π₀.₅</figcaption><a href="./open-loop/subtask/episode_50.png"><img src="./open-loop/subtask/episode_50.png" alt="시연 50에서 Subtask π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+        </div>
+      </details>
+      <details>
+        <summary>시연 100 · 노랑 제외</summary>
+        <div class="comparison">
+          <figure><figcaption>일반 π₀.₅</figcaption><a href="./open-loop/full/episode_100.png"><img src="./open-loop/full/episode_100.png" alt="시연 100에서 일반 π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+          <figure><figcaption>Subtask π₀.₅</figcaption><a href="./open-loop/subtask/episode_100.png"><img src="./open-loop/subtask/episode_100.png" alt="시연 100에서 Subtask π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+        </div>
+      </details>
+      <details>
+        <summary>시연 150 · 초록 제외</summary>
+        <div class="comparison">
+          <figure><figcaption>일반 π₀.₅</figcaption><a href="./open-loop/full/episode_150.png"><img src="./open-loop/full/episode_150.png" alt="시연 150에서 일반 π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+          <figure><figcaption>Subtask π₀.₅</figcaption><a href="./open-loop/subtask/episode_150.png"><img src="./open-loop/subtask/episode_150.png" alt="시연 150에서 Subtask π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+        </div>
+      </details>
     </section>
   </main>
   <footer><div class="wrap">Isaac Sim · Franka Panda · Exclusion Pick-and-Place</div></footer>
