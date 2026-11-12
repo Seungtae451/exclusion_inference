@@ -16,7 +16,9 @@
     "joint7_error_share": 0.2540584122539658,
     "gripper_correct": 199,
     "zero_rmse": 0.12817894335031046,
-    "active_zero_rmse": 0.13680469672489665
+    "active_zero_rmse": 0.13680469672489665,
+    "transition_samples": 140,
+    "transition_arm_rmse": 0.050123444903363214
   },
   "subtask": {
     "samples": 203,
@@ -35,7 +37,9 @@
     "joint7_error_share": 0.5486341924130623,
     "gripper_correct": 198,
     "zero_rmse": 0.12817894335031046,
-    "active_zero_rmse": 0.13680469672489665
+    "active_zero_rmse": 0.13680469672489665,
+    "transition_samples": 140,
+    "transition_arm_rmse": 0.15963174348279935
   },
   "episodes": [
     0,
@@ -45,5 +49,26 @@
   ],
   "stride": 16,
   "active_velocity_threshold": 0.15,
-  "predicted_index": 0
+  "predicted_index": 0,
+  "subtask_40k": {
+    "samples": 203,
+    "arm_rmse": 0.07054459130360362,
+    "active_samples": 173,
+    "active_arm_rmse": 0.07476803958676048,
+    "joint_rmse": [
+      0.0866288223621138,
+      0.02030526940410921,
+      0.0637410390306464,
+      0.047419553769899286,
+      0.052736240749629834,
+      0.04171057900653486,
+      0.126832571053421
+    ],
+    "joint7_error_share": 0.46178105217431964,
+    "gripper_correct": 201,
+    "zero_rmse": 0.12817894335031046,
+    "active_zero_rmse": 0.13680469672489665,
+    "transition_samples": 140,
+    "transition_arm_rmse": 0.05796620036207373
+  }
 }

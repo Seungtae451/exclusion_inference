@@ -59,6 +59,7 @@
     #open-loop figcaption { margin-bottom:6px; }
     #open-loop img { display:block; width:100%; height:auto; background:var(--white); }
     .open-loop-note { margin-top:14px; }
+    @media (min-width:880px) { .open-loop-comparison { grid-template-columns:repeat(3,minmax(0,1fr)); } }
     @media (max-width:650px) {
       .wrap { width:calc(100% - 30px); }
       .comparison,.method { grid-template-columns:1fr; }
@@ -135,46 +136,51 @@
 
     <section class="panel" id="open-loop" aria-labelledby="open-loop-title">
       <h2 id="open-loop-title">오픈루프 평가</h2>
-      <p class="muted">금지 색상별 학습 시연 1개씩 총 4개에서 16프레임마다 관측을 읽었습니다. 두 모델에 동일한 관측 203개를 입력하고, 예측한 16개 동작 중 첫 동작을 시연의 동작과 비교했습니다.</p>
+      <p class="muted">금지 색상별 학습 시연 1개씩 총 4개에서 16프레임마다 관측을 읽었습니다. 각 체크포인트에 동일한 관측 203개를 입력하고, 예측한 16개 동작 중 첫 동작을 시연의 동작과 비교했습니다.</p>
       <div class="table-scroll">
         <table>
-          <thead><tr><th scope="col">지표</th><th scope="col">일반 π₀.₅</th><th scope="col">Subtask π₀.₅</th></tr></thead>
+          <thead><tr><th scope="col">지표</th><th scope="col">일반 π₀.₅</th><th scope="col">Subtask 20k</th><th scope="col">Subtask 40k</th></tr></thead>
           <tbody>
-            <tr><th scope="row">관절 속도 RMSE</th><td>0.043</td><td>0.083</td></tr>
-            <tr><th scope="row">움직임이 큰 표본의 관절 속도 RMSE</th><td>0.039</td><td>0.085</td></tr>
-            <tr><th scope="row">그리퍼 열림·닫힘 일치</th><td>199/203</td><td>198/203</td></tr>
-            <tr><th scope="row">전체 관절 제곱오차에서 7번 관절 비중</th><td>25%</td><td>55%</td></tr>
+            <tr><th scope="row">관절 속도 RMSE</th><td>0.043</td><td>0.083</td><td>0.071</td></tr>
+            <tr><th scope="row">움직임이 큰 표본의 관절 속도 RMSE</th><td>0.039</td><td>0.085</td><td>0.075</td></tr>
+            <tr><th scope="row">그리퍼 열림·닫힘 일치</th><td>199/203</td><td>198/203</td><td>201/203</td></tr>
+            <tr><th scope="row">전체 관절 제곱오차에서 7번 관절 비중</th><td>25%</td><td>55%</td><td>46%</td></tr>
+            <tr><th scope="row">속도 변화 상위 10% RMSE</th><td>0.050</td><td>0.160</td><td>0.058</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="muted open-loop-note">관절 속도는 정규화 단위입니다. 움직임이 큰 표본 173개는 시연에서 관절 하나 이상의 속도 명령 절댓값이 0.15 이상인 경우입니다.</p>
+      <p class="muted open-loop-note">관절 속도는 정규화 단위입니다. 움직임이 큰 표본 173개는 시연에서 관절 하나 이상의 속도 명령 절댓값이 0.15 이상인 경우입니다. 속도 변화 상위 10%는 인접한 평가 표본 사이 시연 속도 변화가 가장 큰 관절별 표본 140개입니다.</p>
       <p><a href="./open-loop/summary.json">상세 지표 JSON</a> · <a href="https://github.com/wuji-technology/wuji-openpi/blob/be6b32540546fb4fdd274f5cc86a7f9a67148a4c/examples/open_loop_eval.py">Wuji-OpenPI 평가 코드</a></p>
       <details open>
         <summary>시연 0 · 빨강 제외</summary>
-        <div class="comparison">
+        <div class="comparison open-loop-comparison">
           <figure><figcaption>일반 π₀.₅</figcaption><a href="./open-loop/full/episode_0.png"><img src="./open-loop/full/episode_0.png" alt="시연 0에서 일반 π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
-          <figure><figcaption>Subtask π₀.₅</figcaption><a href="./open-loop/subtask/episode_0.png"><img src="./open-loop/subtask/episode_0.png" alt="시연 0에서 Subtask π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+          <figure><figcaption>Subtask 20k</figcaption><a href="./open-loop/subtask/episode_0.png"><img src="./open-loop/subtask/episode_0.png" alt="시연 0에서 Subtask π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+          <figure><figcaption>Subtask 40k</figcaption><a href="./open-loop/subtask-40k/episode_0.png"><img src="./open-loop/subtask-40k/episode_0.png" alt="시연 0에서 Subtask 40k의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
         </div>
       </details>
       <details>
         <summary>시연 50 · 파랑 제외</summary>
-        <div class="comparison">
+        <div class="comparison open-loop-comparison">
           <figure><figcaption>일반 π₀.₅</figcaption><a href="./open-loop/full/episode_50.png"><img src="./open-loop/full/episode_50.png" alt="시연 50에서 일반 π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
-          <figure><figcaption>Subtask π₀.₅</figcaption><a href="./open-loop/subtask/episode_50.png"><img src="./open-loop/subtask/episode_50.png" alt="시연 50에서 Subtask π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+          <figure><figcaption>Subtask 20k</figcaption><a href="./open-loop/subtask/episode_50.png"><img src="./open-loop/subtask/episode_50.png" alt="시연 50에서 Subtask π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+          <figure><figcaption>Subtask 40k</figcaption><a href="./open-loop/subtask-40k/episode_50.png"><img src="./open-loop/subtask-40k/episode_50.png" alt="시연 50에서 Subtask 40k의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
         </div>
       </details>
       <details>
         <summary>시연 100 · 노랑 제외</summary>
-        <div class="comparison">
+        <div class="comparison open-loop-comparison">
           <figure><figcaption>일반 π₀.₅</figcaption><a href="./open-loop/full/episode_100.png"><img src="./open-loop/full/episode_100.png" alt="시연 100에서 일반 π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
-          <figure><figcaption>Subtask π₀.₅</figcaption><a href="./open-loop/subtask/episode_100.png"><img src="./open-loop/subtask/episode_100.png" alt="시연 100에서 Subtask π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+          <figure><figcaption>Subtask 20k</figcaption><a href="./open-loop/subtask/episode_100.png"><img src="./open-loop/subtask/episode_100.png" alt="시연 100에서 Subtask π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+          <figure><figcaption>Subtask 40k</figcaption><a href="./open-loop/subtask-40k/episode_100.png"><img src="./open-loop/subtask-40k/episode_100.png" alt="시연 100에서 Subtask 40k의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
         </div>
       </details>
       <details>
         <summary>시연 150 · 초록 제외</summary>
-        <div class="comparison">
+        <div class="comparison open-loop-comparison">
           <figure><figcaption>일반 π₀.₅</figcaption><a href="./open-loop/full/episode_150.png"><img src="./open-loop/full/episode_150.png" alt="시연 150에서 일반 π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
-          <figure><figcaption>Subtask π₀.₅</figcaption><a href="./open-loop/subtask/episode_150.png"><img src="./open-loop/subtask/episode_150.png" alt="시연 150에서 Subtask π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+          <figure><figcaption>Subtask 20k</figcaption><a href="./open-loop/subtask/episode_150.png"><img src="./open-loop/subtask/episode_150.png" alt="시연 150에서 Subtask π₀.₅의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+          <figure><figcaption>Subtask 40k</figcaption><a href="./open-loop/subtask-40k/episode_150.png"><img src="./open-loop/subtask-40k/episode_150.png" alt="시연 150에서 Subtask 40k의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
         </div>
       </details>
     </section>
