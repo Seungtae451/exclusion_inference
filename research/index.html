@@ -11,7 +11,7 @@
     body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.7 "Instrument Sans", system-ui, sans-serif; }
     a { color: var(--accent); text-underline-offset: .2em; }
     a:focus-visible { outline: 2px solid #97640c; outline-offset: 4px; }
-    img, video { display: block; width: 100%; }
+    img, video, iframe { display: block; width: 100%; }
     .wrap { max-width: 1160px; width: min(100% - 36px, 1160px); margin-inline: auto; }
     .top { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding-block: 18px; border-bottom: 1px solid var(--border); }
     .top a { font-size: .9rem; }
@@ -22,7 +22,7 @@
     h2 { font-size: clamp(1.55rem, 3vw, 2.45rem); line-height: 1.25; letter-spacing: -.055em; }
     .hero p { color: var(--muted); font-size: clamp(1rem, 2vw, 1.22rem); margin-top: 18px; max-width: 28em; }
     .hero-photo { overflow: hidden; border-radius: 16px; background: var(--ink); color: white; text-decoration: none; }
-    .hero-photo img { aspect-ratio: 4/3; object-fit: cover; }
+    .hero-photo img { aspect-ratio: 16/9; object-fit: contain; }
     .hero-photo figcaption { padding: 10px 14px; font-size: .85rem; }
     nav { display: flex; flex-wrap: wrap; gap: 8px; padding-block: 14px 20px; border-block: 1px solid var(--border); }
     nav a { border: 1px solid var(--border); padding: 4px 12px; border-radius: 99px; text-decoration: none; font-size: .88rem; }
@@ -36,13 +36,15 @@
     .media { display: grid; align-content: start; gap: 10px; min-width: 0; }
     .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
     .shot { display: block; color: var(--ink); background: #e8ede6; border-radius: 10px; overflow: hidden; text-decoration: none; }
-    .shot img, video { background: #dce4da; aspect-ratio: 16/10; object-fit: contain; }
+    .shot img, video, iframe { background: #dce4da; aspect-ratio: 16/10; object-fit: contain; }
     .shot figcaption, .caption { padding: 7px 10px; font-size: .82rem; }
-    video { border-radius: 10px; }
+    video, iframe { border: 0; border-radius: 10px; }
+    iframe { aspect-ratio: 16/10; background: #192622; }
+    .caption { margin-top: 0; padding-block: 0; color: var(--muted); }
     .links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
     .links a { padding: 4px 10px; border: 1px solid var(--border); border-radius: 7px; font-size: .83rem; }
     footer { padding-block: 18px 30px; border-top: 1px solid var(--border); font-size: .85rem; }
-    @media (max-width: 730px) { .hero, article { grid-template-columns: 1fr; } .hero-photo img { aspect-ratio: 16/10; } }
+    @media (max-width: 730px) { .hero, article { grid-template-columns: 1fr; } }
     @media (max-width: 365px) { .two { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -59,8 +61,8 @@
       </div>
       <a class="hero-photo" href="#supermimic">
         <figure>
-          <img src="media/g1.jpg" alt="전신 동작 추종 평가 중인 Unitree G1 시뮬레이션">
-          <figcaption>Unitree G1 전신 동작 추종 · SuperMimic 재현 ↓</figcaption>
+          <img src="media/f26-policy-walk.jpg" alt="커스텀 F26의 보행 기준 동작과 학습 정책 시뮬레이션">
+          <figcaption>커스텀 F26 전신 동작 추종 · SuperMimic ↓</figcaption>
         </figure>
       </a>
     </div>
@@ -68,8 +70,8 @@
       <a href="#f14">F14 원격조작</a>
       <a href="#v9">휴머노이드 V9</a>
       <a href="#hand">손 리타게팅</a>
-      <a href="#supermimic">SuperMimic 재현</a>
-      <a href="#nmr">신경망 리타게팅</a>
+      <a href="#supermimic">SuperMimic · F26 학습</a>
+      <a href="#nmr">F26 모션 리타게팅</a>
       <a href="#f26">SuperMimic · F26</a>
       <a href="#subtasks">Subtask Labeling</a>
     </nav>
@@ -83,8 +85,8 @@
       </div>
       <div class="media">
         <div class="two">
-          <a class="shot" href="https://drive.google.com/file/d/10QDhROBwnZEJcBWFunTa1n_Fi5Is-BO4/view"><figure><img loading="lazy" src="media/f14-teleop.jpg" alt="테이블 위 큐브를 조작하는 F14 시뮬레이션"><figcaption>▶ Quest AR 원격조작</figcaption></figure></a>
-          <a class="shot" href="https://drive.google.com/file/d/1l9twoK1zWPKI_O8fhQSVG7NZGAdwRZES/view"><figure><img loading="lazy" src="media/f14-inference.jpg" alt="큐브와 트레이 위로 양팔을 뻗은 F14"><figcaption>▶ F14 정책 추론</figcaption></figure></a>
+          <figure class="shot"><iframe src="https://drive.google.com/file/d/10QDhROBwnZEJcBWFunTa1n_Fi5Is-BO4/preview" title="Quest AR 원격조작" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>Quest AR 원격조작 · <a href="https://drive.google.com/file/d/10QDhROBwnZEJcBWFunTa1n_Fi5Is-BO4/view">원본 영상 ↗</a></figcaption></figure>
+          <figure class="shot"><iframe src="https://drive.google.com/file/d/1l9twoK1zWPKI_O8fhQSVG7NZGAdwRZES/preview" title="F14 정책 추론" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>F14 정책 추론 · <a href="https://drive.google.com/file/d/1l9twoK1zWPKI_O8fhQSVG7NZGAdwRZES/view">원본 영상 ↗</a></figcaption></figure>
         </div>
       </div>
     </article>
@@ -96,9 +98,13 @@
       </div>
       <div class="media">
         <div class="two">
-          <a class="shot" href="https://drive.google.com/file/d/1FmxVtYudtwBKYmcY87tuaqDLKYUvxX9Q/view"><figure><img loading="lazy" src="media/v9-teleop.jpg" alt="창고에서 상자와 테이블을 마주한 V9"><figcaption>▶ 창고 환경 원격조작</figcaption></figure></a>
-          <a class="shot" href="https://drive.google.com/file/d/1nk2f-4PsqUkwDfJNuUQLoX2HTHNrC0Kg/view"><figure><img loading="lazy" src="media/v9-inference-100.jpg" alt="V9이 상자 앞에 접근한 π₀.₅ 추론 장면"><figcaption>▶ 시연 100개 조건 추론</figcaption></figure></a>
-          <a class="shot" href="https://drive.google.com/file/d/1Ysn9MyioKZhhFRVrclIQYXdm59sbXl_d/view"><figure><img loading="lazy" src="media/v9-inference.jpg" alt="액션 청킹을 사용하지 않은 V9 추론 장면"><figcaption>▶ 액션 청킹 미사용 추론</figcaption></figure></a>
+          <figure class="shot"><iframe src="https://drive.google.com/file/d/1FmxVtYudtwBKYmcY87tuaqDLKYUvxX9Q/preview" title="창고 환경 원격조작" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>창고 환경 원격조작 · <a href="https://drive.google.com/file/d/1FmxVtYudtwBKYmcY87tuaqDLKYUvxX9Q/view">원본 영상 ↗</a></figcaption></figure>
+          <figure class="shot"><iframe src="https://drive.google.com/file/d/1nk2f-4PsqUkwDfJNuUQLoX2HTHNrC0Kg/preview" title="시연 100개 조건 추론" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>시연 100개 조건 추론 · <a href="https://drive.google.com/file/d/1nk2f-4PsqUkwDfJNuUQLoX2HTHNrC0Kg/view">원본 영상 ↗</a></figcaption></figure>
+          <figure class="shot"><iframe src="https://drive.google.com/file/d/1Ysn9MyioKZhhFRVrclIQYXdm59sbXl_d/preview" title="액션 청킹 미사용 추론" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>액션 청킹 미사용 추론 · <a href="https://drive.google.com/file/d/1Ysn9MyioKZhhFRVrclIQYXdm59sbXl_d/view">원본 영상 ↗</a></figcaption></figure>
+        </div>
+        <div class="two">
+          <figure class="shot"><iframe src="https://drive.google.com/file/d/10MUFA9UGnZ_Vcvisf9_b1suWK8al1P_J/preview" title="V9 상체 추적" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>V9 상체 추적</figcaption></figure>
+          <figure class="shot"><iframe src="https://drive.google.com/file/d/1uySdnS9bOAnoiG3dwZJFyXrgqfOoGhAy/preview" title="초기 원격조작 확인" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>초기 원격조작 확인</figcaption></figure>
         </div>
         <div class="links">
           <a href="https://drive.google.com/file/d/10MUFA9UGnZ_Vcvisf9_b1suWK8al1P_J/view">상체 추적 영상 ↗</a>
@@ -113,31 +119,36 @@
         <p class="result"><strong>확인한 결과</strong> · 손 펴기, 주먹, 손가락별 움직임과 핀치를 나란히 비교했습니다. 비교 결과를 바탕으로 AnyDex와 Wuji를 우선 검토 후보로 정리했습니다.</p>
       </div>
       <div class="media">
-        <a class="shot" href="https://github.com/Seungtae451/hand_teleoperation#sec07"><figure><img loading="lazy" src="media/hand.jpg" alt="사람 손과 네 리타게팅 방법의 결과를 나란히 비교한 화면"><figcaption>▶ 동작별 영상과 GIF 모음</figcaption></figure></a>
-        <div class="links"><a href="https://github.com/Seungtae451/hand_teleoperation">비교 보고서와 코드 ↗</a></div>
+        <figure class="shot"><video controls preload="none" playsinline src="media/hand-comparison.mp4" poster="media/hand.jpg" aria-label="같은 손동작을 적용한 네 가지 리타게팅 결과"></video><figcaption>같은 손동작을 적용한 네 가지 리타게팅 결과</figcaption></figure>
+        <div class="links"><a href="https://github.com/Seungtae451/hand_teleoperation">비교 보고서와 코드 ↗</a><a href="https://github.com/Seungtae451/hand_teleoperation#sec07">동작별 영상과 GIF ↗</a></div>
       </div>
     </article>
     <article id="supermimic">
       <div>
-        <h2>SuperMimic · Unitree G1 재현</h2>
-        <p>Unitree G1이 기준 동작을 따라 하도록 SuperMimic 학습과 평가를 재현했습니다. 동작 데이터를 준비하고, 학습한 정책과 기준 동작을 시뮬레이션에서 함께 볼 수 있도록 만들었습니다.</p>
-        <p class="result"><strong>확인한 결과</strong> · LAFAN1과 BONES-SEED에서 학습과 평가를 수행하고, 점프와 일어서기 등 전신 동작을 재생해 추종 결과를 확인했습니다.</p>
+        <h2>SuperMimic · 커스텀 F26 학습</h2>
+        <p>커스텀 F26이 사람의 기준 동작을 따라 하도록 SuperMimic 학습을 구성했습니다. F26용으로 변환한 LAFAN1 동작 40개를 기준 데이터로 사용해 전신 동작 추종 정책을 학습했습니다.</p>
+        <p class="result"><strong>확인한 결과</strong> · 학습 체크포인트를 불러와 보행, 춤, 점프 입력에 대한 정책의 반응을 시뮬레이션으로 확인했습니다.</p>
       </div>
       <div class="media">
-        <video controls preload="none" playsinline poster="media/g1.jpg" aria-label="G1의 BONES-SEED 전신 동작 추종 영상"><source src="media/g1-demo.webm" type="video/webm"></video>
-        <p class="caption">BONES-SEED 전신 동작 추종 · 시뮬레이션 하이라이트</p>
-        <div class="links"><a href="https://github.com/Seungtae451/SuperMimic-Reproduced_Cocelo">재현 코드와 실험 기록 ↗</a></div>
+        <p class="caption">학습 체크포인트 34,000 · 왼쪽은 기준 동작, 오른쪽은 시뮬레이션에서 실행한 F26 정책</p>
+        <figure class="shot"><video controls preload="none" playsinline src="media/f26-policy-walk.mp4" poster="media/f26-policy-walk.jpg" aria-label="F26 SuperMimic · 보행"></video><figcaption>F26 SuperMimic · 보행</figcaption></figure>
+        <div class="two">
+          <figure class="shot"><video controls preload="none" playsinline src="media/f26-policy-dance.mp4" poster="media/f26-policy-dance.jpg" aria-label="F26 SuperMimic · 춤"></video><figcaption>F26 SuperMimic · 춤</figcaption></figure>
+          <figure class="shot"><video controls preload="none" playsinline src="media/f26-policy-jumps.mp4" poster="media/f26-policy-jumps.jpg" aria-label="F26 SuperMimic · 점프 입력"></video><figcaption>F26 SuperMimic · 점프 입력</figcaption></figure>
+        </div>
+        <div class="links"><a href="https://github.com/Seungtae451/SuperMimic-Reproduced_Cocelo">SuperMimic 기반 코드 ↗</a></div>
       </div>
     </article>
     <article id="nmr">
       <div>
-        <h2>신경망 기반 모션 리타게팅</h2>
-        <p>사람의 전신 움직임을 Unitree G1의 관절 동작으로 변환하는 Neural Motion Retargeting(NMR)을 검토했습니다. 공개 구현과 예제 데이터를 별도 저장소에 정리했습니다.</p>
-        <p class="result"><strong>확인 자료</strong> · 저장소에 공개 체크포인트로 추론하고 변환한 동작을 미리 보거나 파일로 저장하는 경로가 있습니다.</p>
+        <h2>모션 리타게팅 · 사람에서 F26으로</h2>
+        <p>사람의 전신 움직임을 커스텀 F26의 관절 동작으로 옮겼습니다. F26 모델의 관절 범위를 반영해 SOMA로 LAFAN1 동작 40개를 변환하고, 원본과 변환 결과를 같은 시점에서 비교했습니다.</p>
+        <p class="result"><strong>확인한 결과</strong> · 보행 예시와 로봇 모델 변경 전후의 비교 영상을 만들었습니다. 아래 NMR 링크는 신경망 기반 접근을 검토할 때 참고한 자료입니다.</p>
       </div>
       <div class="media">
-        <a class="shot" href="https://nju3dv-humanoidgroup.github.io/nmr.github.io/"><figure><img loading="lazy" src="https://nju3dv-humanoidgroup.github.io/nmr.github.io/static/images/2.png" alt="사람의 동작을 로봇 동작으로 변환하는 NMR 원저자 그림"><figcaption>원저자 프로젝트 · 변환 예시 영상 ↗</figcaption></figure></a>
-        <div class="links"><a href="https://github.com/Seungtae451/neural_motion_re-targeting">NMR 작업 저장소 ↗</a><a href="https://huggingface.co/spaces/RayZhao/NMR">원저자 인터랙티브 데모 ↗</a></div>
+        <figure class="shot"><video controls preload="none" playsinline src="media/f26-retarget-walk.mp4" poster="media/f26-retarget-walk.jpg" aria-label="보행 리타게팅 · 노란 골격은 원본 사람 동작"></video><figcaption>보행 리타게팅 · 노란 골격은 원본 사람 동작</figcaption></figure>
+        <figure class="shot"><video controls preload="none" playsinline src="media/f26-retarget-comparison.mp4" poster="media/f26-retarget-comparison.jpg" aria-label="리타게팅 비교 · 왼쪽은 이전 로봇 모델, 오른쪽은 F26"></video><figcaption>리타게팅 비교 · 왼쪽은 이전 로봇 모델, 오른쪽은 F26</figcaption></figure>
+        <div class="links"><a href="https://github.com/Seungtae451/neural_motion_re-targeting">NMR 참고 저장소 ↗</a><a href="https://huggingface.co/spaces/RayZhao/NMR">NMR 원저자 데모 ↗</a><a href="https://nju3dv-humanoidgroup.github.io/nmr.github.io/">NMR 원저자 프로젝트 ↗</a></div>
       </div>
     </article>
     <article id="f26">
@@ -147,8 +158,8 @@
         <p class="result"><strong>산출물</strong> · 40개 기준 동작을 선택할 수 있는 브라우저 데모와 체크포인트 자동 게시 경로를 구축했습니다. 실시간 데모는 모델 파일을 제공하는 서버가 필요합니다.</p>
       </div>
       <div class="media">
-        <a class="shot" href="https://seungtae451.github.io/supermimic_f26/"><figure><img loading="lazy" src="media/f26.jpg" alt="F26의 시뮬레이션 기립 테스트 장면"><figcaption>F26 기립 시뮬레이션 · 기존 브라우저 데모 ↗</figcaption></figure></a>
-        <div class="links"><a href="https://github.com/Seungtae451/supermimic_f26">브라우저 시뮬레이션 코드 ↗</a></div>
+        <figure class="shot"><video controls preload="none" playsinline src="media/f26-standing.mp4" poster="media/f26.jpg" aria-label="F26 기립 시뮬레이션 · 30초 기립 제어 테스트"></video><figcaption>F26 기립 시뮬레이션 · 30초 기립 제어 테스트</figcaption></figure>
+        <div class="links"><a href="https://seungtae451.github.io/supermimic_f26/">기존 F26 브라우저 데모 ↗</a><a href="https://github.com/Seungtae451/supermimic_f26">브라우저 시뮬레이션 코드 ↗</a></div>
       </div>
     </article>
     <article id="subtasks">
@@ -158,7 +169,7 @@
         <p class="result"><strong>확인한 결과</strong> · 전체 지시문을 쓰는 π₀.₅와 단계 지시를 생성하는 정책의 실행을 비교했습니다. LIBERO 방식의 5스텝 재평가에서는 두 정책 모두 4개 배치에서 전체 작업 성공을 기록하지 못했습니다.</p>
       </div>
       <div class="media">
-        <a class="shot" href="https://drive.google.com/file/d/10hwUnLqgkVWCKJJTLqWFzZzk8eaLp3qQ/view"><figure><img loading="lazy" src="media/subtask.jpg" alt="Franka 작업 영상에 파란 블록을 그릇에 넣으라는 단계 지시가 표시된 장면"><figcaption>▶ 단계 라벨이 표시된 시연</figcaption></figure></a>
+        <figure class="shot"><iframe src="https://drive.google.com/file/d/10hwUnLqgkVWCKJJTLqWFzZzk8eaLp3qQ/preview" title="단계 라벨이 표시된 시연" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>단계 라벨이 표시된 시연 · <a href="https://drive.google.com/file/d/10hwUnLqgkVWCKJJTLqWFzZzk8eaLp3qQ/view">원본 영상 ↗</a></figcaption></figure>
         <div class="links"><a href="../square-yaw-200/#libero-style">Exclusion 평가 영상과 결과 ↗</a></div>
       </div>
     </article>
