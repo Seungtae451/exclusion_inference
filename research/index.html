@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Seungtae451의 STKIM 로봇 연구 기록. Quest 원격조작, π₀.₅ 학습, 리타게팅, SuperMimic, Subtask Labeling.">
+  <title>STKIM 로봇 연구 성과 | Seungtae451</title>
+  <style>
+    :root { color-scheme: light; --paper: #f3f3eb; --white: #fffefa; --ink: #172924; --muted: #53645d; --accent: #175943; --border: #d5ddd3; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.7 "Instrument Sans", system-ui, sans-serif; }
+    a { color: var(--accent); text-underline-offset: .2em; }
+    a:focus-visible { outline: 2px solid #97640c; outline-offset: 4px; }
+    img, video { display: block; width: 100%; }
+    .wrap { max-width: 1160px; width: min(100% - 36px, 1160px); margin-inline: auto; }
+    .top { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding-block: 18px; border-bottom: 1px solid var(--border); }
+    .top a { font-size: .9rem; }
+    .brand { font-weight: 800; letter-spacing: .09em; }
+    .hero { display: grid; grid-template-columns: .95fr 1.05fr; align-items: center; gap: clamp(22px, 5vw, 70px); padding-block: clamp(36px, 7vw, 88px); }
+    h1, h2, p, figure { margin: 0; }
+    h1 { font-size: clamp(2.8rem, 7vw, 5.8rem); line-height: 1.02; letter-spacing: -.075em; }
+    h2 { font-size: clamp(1.55rem, 3vw, 2.45rem); line-height: 1.25; letter-spacing: -.055em; }
+    .hero p { color: var(--muted); font-size: clamp(1rem, 2vw, 1.22rem); margin-top: 18px; max-width: 28em; }
+    .hero-photo { overflow: hidden; border-radius: 16px; background: var(--ink); color: white; text-decoration: none; }
+    .hero-photo img { aspect-ratio: 4/3; object-fit: cover; }
+    .hero-photo figcaption { padding: 10px 14px; font-size: .85rem; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; padding-block: 14px 20px; border-block: 1px solid var(--border); }
+    nav a { border: 1px solid var(--border); padding: 4px 12px; border-radius: 99px; text-decoration: none; font-size: .88rem; }
+    nav a:hover, .links a:hover { background: #e4ece2; }
+    main { padding-block: 24px 50px; }
+    article { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(18px, 4vw, 50px); padding: clamp(16px, 3.4vw, 38px); background: var(--white); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 16px; scroll-margin-top: 14px; }
+    article:target { border-color: var(--accent); }
+    article p { margin-top: 12px; }
+    .result { color: var(--muted); font-size: .95rem; }
+    .result strong { color: var(--ink); }
+    .media { display: grid; align-content: start; gap: 10px; min-width: 0; }
+    .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .shot { display: block; color: var(--ink); background: #e8ede6; border-radius: 10px; overflow: hidden; text-decoration: none; }
+    .shot img, video { background: #dce4da; aspect-ratio: 16/10; object-fit: contain; }
+    .shot figcaption, .caption { padding: 7px 10px; font-size: .82rem; }
+    video { border-radius: 10px; }
+    .links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .links a { padding: 4px 10px; border: 1px solid var(--border); border-radius: 7px; font-size: .83rem; }
+    footer { padding-block: 18px 30px; border-top: 1px solid var(--border); font-size: .85rem; }
+    @media (max-width: 730px) { .hero, article { grid-template-columns: 1fr; } .hero-photo img { aspect-ratio: 16/10; } }
+    @media (max-width: 365px) { .two { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="wrap top" id="top">
+    <span class="brand">STKIM · ROBOTICS</span>
+    <a href="https://github.com/Seungtae451">GitHub · Seungtae451</a>
+  </header>
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <h1>로봇 연구<br>성과 보고서</h1>
+        <p>Meta Quest로 로봇을 조작하고 시연을 모아 π₀.₅를 학습시켰습니다. 손과 전신의 동작 변환, 휴머노이드 동작 추종, 작업 단계 라벨링까지 진행한 일곱 가지 연구를 정리했습니다.</p>
+      </div>
+      <a class="hero-photo" href="#supermimic">
+        <figure>
+          <img src="media/g1.jpg" alt="전신 동작 추종 평가 중인 Unitree G1 시뮬레이션">
+          <figcaption>Unitree G1 전신 동작 추종 · SuperMimic 재현 ↓</figcaption>
+        </figure>
+      </a>
+    </div>
+    <nav aria-label="연구 목차">
+      <a href="#f14">F14 원격조작</a>
+      <a href="#v9">휴머노이드 V9</a>
+      <a href="#hand">손 리타게팅</a>
+      <a href="#supermimic">SuperMimic 재현</a>
+      <a href="#nmr">신경망 리타게팅</a>
+      <a href="#f26">SuperMimic · F26</a>
+      <a href="#subtasks">Subtask Labeling</a>
+    </nav>
+  </div>
+  <main class="wrap">
+    <article id="f14">
+      <div>
+        <h2>F14 · Meta Quest 원격조작과 π₀.₅</h2>
+        <p>Quest로 F14의 팔과 그리퍼를 조작해 빨간 큐브를 집어 옮기는 시연을 만들었습니다. 카메라 영상과 로봇 동작을 함께 저장해 π₀.₅ 학습에 연결했습니다.</p>
+        <p class="result"><strong>확인한 결과</strong> · 원격조작부터 시연 저장과 정책 추론까지 연결하고, 시뮬레이션에서 모델의 동작을 영상으로 남겼습니다.</p>
+      </div>
+      <div class="media">
+        <div class="two">
+          <a class="shot" href="https://drive.google.com/file/d/10QDhROBwnZEJcBWFunTa1n_Fi5Is-BO4/view"><figure><img loading="lazy" src="media/f14-teleop.jpg" alt="테이블 위 큐브를 조작하는 F14 시뮬레이션"><figcaption>▶ Quest AR 원격조작</figcaption></figure></a>
+          <a class="shot" href="https://drive.google.com/file/d/1l9twoK1zWPKI_O8fhQSVG7NZGAdwRZES/view"><figure><img loading="lazy" src="media/f14-inference.jpg" alt="큐브와 트레이 위로 양팔을 뻗은 F14"><figcaption>▶ F14 정책 추론</figcaption></figure></a>
+        </div>
+      </div>
+    </article>
+    <article id="v9">
+      <div>
+        <h2>휴머노이드 V9 · 원격조작과 π₀.₅</h2>
+        <p>Quest가 추적한 사람의 팔 움직임과 컨트롤러의 보행 명령을 V9에 전달했습니다. 테이블로 이동해 양팔로 박스를 들어 올리는 작업을 구성하고, 시연을 저장하면 학습용 데이터로 변환되도록 연결했습니다.</p>
+        <p class="result"><strong>확인한 결과</strong> · 원격조작과 상체 추적을 기록했고, π₀.₅ 학습 경로와 서로 다른 조건의 추론을 시험했습니다. 영상은 개별 실행 사례입니다.</p>
+      </div>
+      <div class="media">
+        <div class="two">
+          <a class="shot" href="https://drive.google.com/file/d/1FmxVtYudtwBKYmcY87tuaqDLKYUvxX9Q/view"><figure><img loading="lazy" src="media/v9-teleop.jpg" alt="창고에서 상자와 테이블을 마주한 V9"><figcaption>▶ 창고 환경 원격조작</figcaption></figure></a>
+          <a class="shot" href="https://drive.google.com/file/d/1nk2f-4PsqUkwDfJNuUQLoX2HTHNrC0Kg/view"><figure><img loading="lazy" src="media/v9-inference-100.jpg" alt="V9이 상자 앞에 접근한 π₀.₅ 추론 장면"><figcaption>▶ 시연 100개 조건 추론</figcaption></figure></a>
+          <a class="shot" href="https://drive.google.com/file/d/1Ysn9MyioKZhhFRVrclIQYXdm59sbXl_d/view"><figure><img loading="lazy" src="media/v9-inference.jpg" alt="액션 청킹을 사용하지 않은 V9 추론 장면"><figcaption>▶ 액션 청킹 미사용 추론</figcaption></figure></a>
+        </div>
+        <div class="links">
+          <a href="https://drive.google.com/file/d/10MUFA9UGnZ_Vcvisf9_b1suWK8al1P_J/view">상체 추적 영상 ↗</a>
+          <a href="https://drive.google.com/file/d/1uySdnS9bOAnoiG3dwZJFyXrgqfOoGhAy/view">초기 원격조작 확인 영상 ↗</a>
+        </div>
+      </div>
+    </article>
+    <article id="hand">
+      <div>
+        <h2>손 리타게팅 알고리즘 비교</h2>
+        <p>Quest로 직접 녹화한 손동작을 Tesollo DG-5F 시뮬레이션에 옮겼습니다. 같은 입력으로 MANUS-style, AnyDex, Wuji, GeoRT 네 방법을 비교했습니다.</p>
+        <p class="result"><strong>확인한 결과</strong> · 손 펴기, 주먹, 손가락별 움직임과 핀치를 나란히 비교했습니다. 비교 결과를 바탕으로 AnyDex와 Wuji를 우선 검토 후보로 정리했습니다.</p>
+      </div>
+      <div class="media">
+        <a class="shot" href="https://github.com/Seungtae451/hand_teleoperation#sec07"><figure><img loading="lazy" src="media/hand.jpg" alt="사람 손과 네 리타게팅 방법의 결과를 나란히 비교한 화면"><figcaption>▶ 동작별 영상과 GIF 모음</figcaption></figure></a>
+        <div class="links"><a href="https://github.com/Seungtae451/hand_teleoperation">비교 보고서와 코드 ↗</a></div>
+      </div>
+    </article>
+    <article id="supermimic">
+      <div>
+        <h2>SuperMimic · Unitree G1 재현</h2>
+        <p>Unitree G1이 기준 동작을 따라 하도록 SuperMimic 학습과 평가를 재현했습니다. 동작 데이터를 준비하고, 학습한 정책과 기준 동작을 시뮬레이션에서 함께 볼 수 있도록 만들었습니다.</p>
+        <p class="result"><strong>확인한 결과</strong> · LAFAN1과 BONES-SEED에서 학습과 평가를 수행하고, 점프와 일어서기 등 전신 동작을 재생해 추종 결과를 확인했습니다.</p>
+      </div>
+      <div class="media">
+        <video controls preload="none" playsinline poster="media/g1.jpg" aria-label="G1의 BONES-SEED 전신 동작 추종 영상"><source src="media/g1-demo.webm" type="video/webm"></video>
+        <p class="caption">BONES-SEED 전신 동작 추종 · 시뮬레이션 하이라이트</p>
+        <div class="links"><a href="https://github.com/Seungtae451/SuperMimic-Reproduced_Cocelo">재현 코드와 실험 기록 ↗</a></div>
+      </div>
+    </article>
+    <article id="nmr">
+      <div>
+        <h2>신경망 기반 모션 리타게팅</h2>
+        <p>사람의 전신 움직임을 Unitree G1의 관절 동작으로 변환하는 Neural Motion Retargeting(NMR)을 검토했습니다. 공개 구현과 예제 데이터를 별도 저장소에 정리했습니다.</p>
+        <p class="result"><strong>확인 자료</strong> · 저장소에 공개 체크포인트로 추론하고 변환한 동작을 미리 보거나 파일로 저장하는 경로가 있습니다.</p>
+      </div>
+      <div class="media">
+        <a class="shot" href="https://nju3dv-humanoidgroup.github.io/nmr.github.io/"><figure><img loading="lazy" src="https://nju3dv-humanoidgroup.github.io/nmr.github.io/static/images/2.png" alt="사람의 동작을 로봇 동작으로 변환하는 NMR 원저자 그림"><figcaption>원저자 프로젝트 · 변환 예시 영상 ↗</figcaption></figure></a>
+        <div class="links"><a href="https://github.com/Seungtae451/neural_motion_re-targeting">NMR 작업 저장소 ↗</a><a href="https://huggingface.co/spaces/RayZhao/NMR">원저자 인터랙티브 데모 ↗</a></div>
+      </div>
+    </article>
+    <article id="f26">
+      <div>
+        <h2>SuperMimic · F26 적용</h2>
+        <p>F26 정책과 시뮬레이션을 각 방문자의 브라우저에서 실행하도록 구성했습니다. 사용자가 동작을 선택하고, 재생을 멈추거나 속도를 조절할 수 있게 했습니다.</p>
+        <p class="result"><strong>산출물</strong> · 40개 기준 동작을 선택할 수 있는 브라우저 데모와 체크포인트 자동 게시 경로를 구축했습니다. 실시간 데모는 모델 파일을 제공하는 서버가 필요합니다.</p>
+      </div>
+      <div class="media">
+        <a class="shot" href="https://seungtae451.github.io/supermimic_f26/"><figure><img loading="lazy" src="media/f26.jpg" alt="F26의 시뮬레이션 기립 테스트 장면"><figcaption>F26 기립 시뮬레이션 · 기존 브라우저 데모 ↗</figcaption></figure></a>
+        <div class="links"><a href="https://github.com/Seungtae451/supermimic_f26">브라우저 시뮬레이션 코드 ↗</a></div>
+      </div>
+    </article>
+    <article id="subtasks">
+      <div>
+        <h2>Subtask Labeling · 작업 단계별 지시</h2>
+        <p>Franka가 지정된 색 하나를 제외하고 나머지 블록을 그릇에 담는 작업을 구성했습니다. 시연에서 실제로 담은 색을 기준으로 단계별 지시문을 자동으로 붙이고, 마지막에는 종료 라벨을 기록했습니다.</p>
+        <p class="result"><strong>확인한 결과</strong> · 전체 지시문을 쓰는 π₀.₅와 단계 지시를 생성하는 정책의 실행을 비교했습니다. LIBERO 방식의 5스텝 재평가에서는 두 정책 모두 4개 배치에서 전체 작업 성공을 기록하지 못했습니다.</p>
+      </div>
+      <div class="media">
+        <a class="shot" href="https://drive.google.com/file/d/10hwUnLqgkVWCKJJTLqWFzZzk8eaLp3qQ/view"><figure><img loading="lazy" src="media/subtask.jpg" alt="Franka 작업 영상에 파란 블록을 그릇에 넣으라는 단계 지시가 표시된 장면"><figcaption>▶ 단계 라벨이 표시된 시연</figcaption></figure></a>
+        <div class="links"><a href="../square-yaw-200/#libero-style">Exclusion 평가 영상과 결과 ↗</a></div>
+      </div>
+    </article>
+  </main>
+  <footer class="wrap"><a href="#top">맨 위로 ↑</a></footer>
+</body>
+</html>
