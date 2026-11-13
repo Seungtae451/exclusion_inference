@@ -11,7 +11,7 @@
     body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.7 "Instrument Sans", system-ui, sans-serif; }
     a { color: var(--accent); text-underline-offset: .2em; }
     a:focus-visible { outline: 2px solid #97640c; outline-offset: 4px; }
-    img, video, iframe { display: block; width: 100%; }
+    img, video { display: block; width: 100%; }
     .wrap { max-width: 1160px; width: min(100% - 36px, 1160px); margin-inline: auto; }
     .top { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding-block: 18px; border-bottom: 1px solid var(--border); }
     .top a { font-size: .9rem; }
@@ -36,10 +36,9 @@
     .media { display: grid; align-content: start; gap: 10px; min-width: 0; }
     .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
     .shot { display: block; color: var(--ink); background: #e8ede6; border-radius: 10px; overflow: hidden; text-decoration: none; }
-    .shot img, video, iframe { background: #dce4da; aspect-ratio: 16/10; object-fit: contain; }
+    .shot img, video { background: #dce4da; aspect-ratio: 16/10; object-fit: contain; }
     .shot figcaption, .caption { padding: 7px 10px; font-size: .82rem; }
-    video, iframe { border: 0; border-radius: 10px; }
-    iframe { aspect-ratio: 16/10; background: #192622; }
+    video { border: 0; border-radius: 10px; }
     .caption { margin-top: 0; padding-block: 0; color: var(--muted); }
     .links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
     .links a { padding: 4px 10px; border: 1px solid var(--border); border-radius: 7px; font-size: .83rem; }
@@ -85,8 +84,8 @@
       </div>
       <div class="media">
         <div class="two">
-          <figure class="shot"><iframe src="https://drive.google.com/file/d/10QDhROBwnZEJcBWFunTa1n_Fi5Is-BO4/preview" title="Quest AR 원격조작" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>Quest AR 원격조작 · <a href="https://drive.google.com/file/d/10QDhROBwnZEJcBWFunTa1n_Fi5Is-BO4/view">원본 영상 ↗</a></figcaption></figure>
-          <figure class="shot"><iframe src="https://drive.google.com/file/d/1l9twoK1zWPKI_O8fhQSVG7NZGAdwRZES/preview" title="F14 정책 추론" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>F14 정책 추론 · <a href="https://drive.google.com/file/d/1l9twoK1zWPKI_O8fhQSVG7NZGAdwRZES/view">원본 영상 ↗</a></figcaption></figure>
+          <figure class="shot"><video controls preload="none" playsinline src="media/f14-teleop.mp4" poster="media/f14-teleop.jpg" aria-label="Quest AR 원격조작"></video><figcaption>Quest AR 원격조작 · <a href="https://drive.google.com/file/d/10QDhROBwnZEJcBWFunTa1n_Fi5Is-BO4/view">원본 영상 ↗</a></figcaption></figure>
+          <figure class="shot"><video controls preload="none" playsinline src="media/f14-inference.mp4" poster="media/f14-inference.jpg" aria-label="F14 정책 추론"></video><figcaption>F14 정책 추론 · <a href="https://drive.google.com/file/d/1l9twoK1zWPKI_O8fhQSVG7NZGAdwRZES/view">원본 영상 ↗</a></figcaption></figure>
         </div>
       </div>
     </article>
@@ -98,13 +97,13 @@
       </div>
       <div class="media">
         <div class="two">
-          <figure class="shot"><iframe src="https://drive.google.com/file/d/1FmxVtYudtwBKYmcY87tuaqDLKYUvxX9Q/preview" title="창고 환경 원격조작" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>창고 환경 원격조작 · <a href="https://drive.google.com/file/d/1FmxVtYudtwBKYmcY87tuaqDLKYUvxX9Q/view">원본 영상 ↗</a></figcaption></figure>
-          <figure class="shot"><iframe src="https://drive.google.com/file/d/1nk2f-4PsqUkwDfJNuUQLoX2HTHNrC0Kg/preview" title="시연 100개 조건 추론" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>시연 100개 조건 추론 · <a href="https://drive.google.com/file/d/1nk2f-4PsqUkwDfJNuUQLoX2HTHNrC0Kg/view">원본 영상 ↗</a></figcaption></figure>
-          <figure class="shot"><iframe src="https://drive.google.com/file/d/1Ysn9MyioKZhhFRVrclIQYXdm59sbXl_d/preview" title="액션 청킹 미사용 추론" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>액션 청킹 미사용 추론 · <a href="https://drive.google.com/file/d/1Ysn9MyioKZhhFRVrclIQYXdm59sbXl_d/view">원본 영상 ↗</a></figcaption></figure>
+          <figure class="shot"><video controls preload="none" playsinline src="media/v9-teleop.mp4" poster="media/v9-teleop.jpg" aria-label="창고 환경 원격조작"></video><figcaption>창고 환경 원격조작 · <a href="https://drive.google.com/file/d/1FmxVtYudtwBKYmcY87tuaqDLKYUvxX9Q/view">원본 영상 ↗</a></figcaption></figure>
+          <figure class="shot"><video controls preload="none" playsinline src="media/v9-inference-100.mp4" poster="media/v9-inference-100.jpg" aria-label="시연 100개 조건 추론"></video><figcaption>시연 100개 조건 추론 · <a href="https://drive.google.com/file/d/1nk2f-4PsqUkwDfJNuUQLoX2HTHNrC0Kg/view">원본 영상 ↗</a></figcaption></figure>
+          <figure class="shot"><video controls preload="none" playsinline src="media/v9-inference.mp4" poster="media/v9-inference.jpg" aria-label="액션 청킹 미사용 추론"></video><figcaption>액션 청킹 미사용 추론 · <a href="https://drive.google.com/file/d/1Ysn9MyioKZhhFRVrclIQYXdm59sbXl_d/view">원본 영상 ↗</a></figcaption></figure>
         </div>
         <div class="two">
-          <figure class="shot"><iframe src="https://drive.google.com/file/d/10MUFA9UGnZ_Vcvisf9_b1suWK8al1P_J/preview" title="V9 상체 추적" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>V9 상체 추적</figcaption></figure>
-          <figure class="shot"><iframe src="https://drive.google.com/file/d/1uySdnS9bOAnoiG3dwZJFyXrgqfOoGhAy/preview" title="초기 원격조작 확인" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>초기 원격조작 확인</figcaption></figure>
+          <figure class="shot"><video controls preload="metadata" playsinline src="media/v9-upper-body.mp4" aria-label="V9 상체 추적"></video><figcaption>V9 상체 추적</figcaption></figure>
+          <figure class="shot"><video controls preload="metadata" playsinline src="media/early-teleop.mp4" aria-label="초기 원격조작 확인"></video><figcaption>초기 원격조작 확인</figcaption></figure>
         </div>
         <div class="links">
           <a href="https://drive.google.com/file/d/10MUFA9UGnZ_Vcvisf9_b1suWK8al1P_J/view">상체 추적 영상 ↗</a>
@@ -169,7 +168,7 @@
         <p class="result"><strong>확인한 결과</strong> · 전체 지시문을 쓰는 π₀.₅와 단계 지시를 생성하는 정책의 실행을 비교했습니다. LIBERO 방식의 5스텝 재평가에서는 두 정책 모두 4개 배치에서 전체 작업 성공을 기록하지 못했습니다.</p>
       </div>
       <div class="media">
-        <figure class="shot"><iframe src="https://drive.google.com/file/d/10hwUnLqgkVWCKJJTLqWFzZzk8eaLp3qQ/preview" title="단계 라벨이 표시된 시연" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>단계 라벨이 표시된 시연 · <a href="https://drive.google.com/file/d/10hwUnLqgkVWCKJJTLqWFzZzk8eaLp3qQ/view">원본 영상 ↗</a></figcaption></figure>
+        <figure class="shot"><video controls preload="none" playsinline src="media/subtask.mp4" poster="media/subtask.jpg" aria-label="단계 라벨이 표시된 시연"></video><figcaption>단계 라벨이 표시된 시연 · <a href="https://drive.google.com/file/d/10hwUnLqgkVWCKJJTLqWFzZzk8eaLp3qQ/view">원본 영상 ↗</a></figcaption></figure>
         <div class="links"><a href="../square-yaw-200/#libero-style">Exclusion 평가 영상과 결과 ↗</a></div>
       </div>
     </article>
