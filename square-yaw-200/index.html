@@ -53,11 +53,11 @@
     footer { padding:24px 0 36px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
     :focus-visible { outline:2px solid var(--green); outline-offset:3px; }
 
-    #libero-style details, #open-loop details { border-top:1px solid var(--line); padding:12px 0; }
-    #libero-style summary, #open-loop summary { cursor:pointer; font-weight:600; }
-    #open-loop figure { margin:12px 0 0; }
+    #teleop-subtask-40k details, #libero-style details, #open-loop details { border-top:1px solid var(--line); padding:12px 0; }
+    #teleop-subtask-40k summary, #libero-style summary, #open-loop summary { cursor:pointer; font-weight:600; }
+    #teleop-subtask-40k figure, #open-loop figure { margin:12px 0 0; }
     #open-loop figcaption { margin-bottom:6px; }
-    #open-loop img { display:block; width:100%; height:auto; background:var(--white); }
+    #teleop-subtask-40k img, #open-loop img { display:block; width:100%; height:auto; background:var(--white); }
     .open-loop-note { margin-top:14px; }
     @media (min-width:880px) { .open-loop-comparison { grid-template-columns:repeat(3,minmax(0,1fr)); } }
     @media (max-width:650px) {
@@ -74,7 +74,7 @@
   <header class="masthead">
     <div class="wrap">
       <span class="brand">ISAAC SIM / POLICY EVALUATION</span>
-      <nav aria-label="평가 결과"><a href="#results">실행 결과</a> · <a href="#open-loop">오픈루프</a> · <a href="#subtask-40k">Subtask 40k</a> · <a href="#libero-style">5스텝 평가</a></nav>
+      <nav aria-label="평가 결과"><a href="#results">실행 결과</a> · <a href="#open-loop">오픈루프</a> · <a href="#subtask-40k">Subtask 40k</a> · <a href="#libero-style">5스텝 평가</a> · <a href="#teleop-subtask-40k">텔레옵 40k</a></nav>
     </div>
   </header>
   <main class="wrap">
@@ -287,6 +287,70 @@
             <div class="film"><video controls preload="none" playsinline aria-label="Subtask 40k 시드 1003 평가 영상" style="display:block;width:100%;height:auto"><source src="./libero-style-step5/subtask-1003.mp4" type="video/mp4"></video></div>
           </article>
         </div>
+      </details>
+    </section>
+
+    <section class="panel" id="teleop-subtask-40k" aria-labelledby="teleop-subtask-40k-title">
+      <h2 id="teleop-subtask-40k-title">텔레옵 Subtask 40k 평가</h2>
+      <p class="muted">성공한 텔레옵 시연 198개로 학습한 체크포인트 39999를 사용했습니다. 시드 1000–1003, 카메라 동기화, 15Hz, 16스텝마다 재추론, RTC 미사용 조건은 앞선 IK Subtask 평가와 같습니다.</p>
+      <p><strong>전체 과제 성공 0/4</strong> · <a href="./teleop-subtask-40k/results.json">상세 결과 JSON</a></p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">시드</th><th scope="col">IK 20k · 투입 수</th><th scope="col">IK 40k · 투입 수</th><th scope="col">텔레옵 40k · 투입 수</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1000</th><td>타임아웃 · 1/3</td><td>타임아웃 · 0/3</td><td>타임아웃 · 2/3</td></tr>
+            <tr><th scope="row">1001</th><td>타임아웃 · 0/3</td><td>타임아웃 · 1/3</td><td>타임아웃 · 1/3</td></tr>
+            <tr><th scope="row">1002</th><td>타임아웃 · 1/3</td><td>타임아웃 · 1/3</td><td>타임아웃 · 1/3</td></tr>
+            <tr><th scope="row">1003</th><td>금지 큐브 투입 · 0/3</td><td>금지 큐브 투입 · 0/3</td><td>타임아웃 · 0/3</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="comparison" style="margin-top:18px">
+        <article class="clip">
+          <header><h3>시드 1000</h3><p class="muted">타임아웃 · 2/3 · 120.00초</p></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="텔레옵 Subtask 40k 시드 1000 평가 영상" style="display:block;width:100%;height:auto"><source src="./teleop-subtask-40k/subtask-1000.mp4" type="video/mp4"></video></div>
+        </article>
+        <article class="clip">
+          <header><h3>시드 1001</h3><p class="muted">타임아웃 · 1/3 · 120.00초</p></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="텔레옵 Subtask 40k 시드 1001 평가 영상" style="display:block;width:100%;height:auto"><source src="./teleop-subtask-40k/subtask-1001.mp4" type="video/mp4"></video></div>
+        </article>
+        <article class="clip">
+          <header><h3>시드 1002</h3><p class="muted">타임아웃 · 1/3 · 120.00초</p></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="텔레옵 Subtask 40k 시드 1002 평가 영상" style="display:block;width:100%;height:auto"><source src="./teleop-subtask-40k/subtask-1002.mp4" type="video/mp4"></video></div>
+        </article>
+        <article class="clip">
+          <header><h3>시드 1003</h3><p class="muted">타임아웃 · 0/3 · 120.00초</p></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="텔레옵 Subtask 40k 시드 1003 평가 영상" style="display:block;width:100%;height:auto"><source src="./teleop-subtask-40k/subtask-1003.mp4" type="video/mp4"></video></div>
+        </article>
+      </div>
+      <h3 style="margin-top:28px">오픈루프</h3>
+      <p class="muted">Wuji 평가기로 금지 색상별 텔레옵 학습 시연 1개씩 4개를 16프레임 간격으로 읽었습니다. 관측 69개에서 첫 예측 동작을 비교했습니다. 이전 IK 오픈루프는 다른 시연을 사용했습니다.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">지표</th><th scope="col">텔레옵 40k</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">정규화 관절 속도 RMSE</th><td>0.106</td></tr>
+            <tr><th scope="row">움직임이 큰 표본 RMSE</th><td>0.121 · 49개</td></tr>
+            <tr><th scope="row">속도 변화 상위 10% RMSE</th><td>0.173 · 46개</td></tr>
+            <tr><th scope="row">그리퍼 열림·닫힘 일치</th><td>68/69</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <details>
+        <summary>시연 0 · 빨강 제외</summary>
+        <figure><a href="./teleop-subtask-40k/episode_0.png"><img src="./teleop-subtask-40k/episode_0.png" alt="시연 0의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+      </details>
+      <details>
+        <summary>시연 50 · 파랑 제외</summary>
+        <figure><a href="./teleop-subtask-40k/episode_50.png"><img src="./teleop-subtask-40k/episode_50.png" alt="시연 50의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+      </details>
+      <details>
+        <summary>시연 99 · 노랑 제외</summary>
+        <figure><a href="./teleop-subtask-40k/episode_99.png"><img src="./teleop-subtask-40k/episode_99.png" alt="시연 99의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
+      </details>
+      <details>
+        <summary>시연 149 · 초록 제외</summary>
+        <figure><a href="./teleop-subtask-40k/episode_149.png"><img src="./teleop-subtask-40k/episode_149.png" alt="시연 149의 관절·그리퍼 예측과 정답 비교" loading="lazy"></a></figure>
       </details>
     </section>
   </main>

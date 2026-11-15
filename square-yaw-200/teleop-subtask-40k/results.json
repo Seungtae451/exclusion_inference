@@ -1,0 +1,127 @@
+{
+  "checkpoint": 39999,
+  "demonstrations": 198,
+  "action_hz": 15,
+  "action_steps": 16,
+  "rtc": false,
+  "camera_sync": true,
+  "successes": 0,
+  "rollouts": [
+    {
+      "seed": 1000,
+      "ik_20k": {
+        "outcome": "timeout",
+        "excluded": "red",
+        "placed": 1,
+        "elapsed_seconds": 120.0
+      },
+      "ik_40k": {
+        "outcome": "timeout",
+        "excluded": "red",
+        "placed": 0,
+        "elapsed_seconds": 120.0
+      },
+      "teleop_40k": {
+        "outcome": "timeout",
+        "excluded": "red",
+        "placed": 2,
+        "elapsed_seconds": 120.0
+      },
+      "video": "subtask-1000.mp4"
+    },
+    {
+      "seed": 1001,
+      "ik_20k": {
+        "outcome": "timeout",
+        "excluded": "blue",
+        "placed": 0,
+        "elapsed_seconds": 120.0
+      },
+      "ik_40k": {
+        "outcome": "timeout",
+        "excluded": "blue",
+        "placed": 1,
+        "elapsed_seconds": 120.0
+      },
+      "teleop_40k": {
+        "outcome": "timeout",
+        "excluded": "blue",
+        "placed": 1,
+        "elapsed_seconds": 120.0
+      },
+      "video": "subtask-1001.mp4"
+    },
+    {
+      "seed": 1002,
+      "ik_20k": {
+        "outcome": "timeout",
+        "excluded": "green",
+        "placed": 1,
+        "elapsed_seconds": 120.0
+      },
+      "ik_40k": {
+        "outcome": "timeout",
+        "excluded": "green",
+        "placed": 1,
+        "elapsed_seconds": 120.0
+      },
+      "teleop_40k": {
+        "outcome": "timeout",
+        "excluded": "green",
+        "placed": 1,
+        "elapsed_seconds": 120.0
+      },
+      "video": "subtask-1002.mp4"
+    },
+    {
+      "seed": 1003,
+      "ik_20k": {
+        "outcome": "excluded_object_in_bowl",
+        "excluded": "yellow",
+        "placed": 0,
+        "elapsed_seconds": 23.47
+      },
+      "ik_40k": {
+        "outcome": "excluded_object_in_bowl",
+        "excluded": "yellow",
+        "placed": 0,
+        "elapsed_seconds": 29.73
+      },
+      "teleop_40k": {
+        "outcome": "timeout",
+        "excluded": "yellow",
+        "placed": 0,
+        "elapsed_seconds": 120.0
+      },
+      "video": "subtask-1003.mp4"
+    }
+  ],
+  "open_loop": {
+    "episodes": [
+      0,
+      50,
+      99,
+      149
+    ],
+    "stride": 16,
+    "prediction_index": 0,
+    "active_velocity_threshold": 0.15,
+    "samples": 69,
+    "active_samples": 49,
+    "transition_samples": 46,
+    "arm_rmse": 0.10637290059569852,
+    "active_arm_rmse": 0.12128511970935489,
+    "transition_arm_rmse": 0.17261961723902208,
+    "joint_rmse": [
+      0.05319319111425427,
+      0.14414259117503544,
+      0.08972120869278584,
+      0.1195238591879493,
+      0.0817493080700548,
+      0.07872447274142938,
+      0.1427704994513978
+    ],
+    "joint7_error_share": 0.25734569878307134,
+    "gripper_correct": 68
+  }
+}
