@@ -1,27 +1,193 @@
 <!doctype html>
-<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Panda π₀.₅ Subtask 10k 평가</title>
-<style>
-body {font: 1rem/1.6 system-ui, sans-serif; max-width: 62rem; margin: 2rem auto; padding: 0 1rem; color: #20252a}
-table {border-collapse: collapse} td, th {text-align: left; border-bottom: 1px solid #ddd; padding: .4rem .8rem}
-video, img {display: block; width: 100%; max-width: 52rem; margin: .6rem 0} details {margin: .8rem 0}
-</style>
-<main>
-<p><a href="../">Exclusion Pick-and-Place 평가</a></p>
-<h1>Panda π₀.₅ Subtask 10k 평가</h1>
-<p>텔레옵 시연 198개로 π₀.₅ Base를 전체 미세조정한 10,000-step 체크포인트입니다.
-<a href="results.json">평가 결과와 추론 요청 기록 JSON</a></p>
-<h2>Open-loop</h2>
-<p>학습 시연 0, 50, 99, 149에서 16프레임마다 첫 예측 행동을 실제 명령과 비교했습니다.
-총 69개 관측에서 7개 관절의 절대 위치 RMSE는 <strong>0.0195 rad</strong>이며,
-그리퍼 열림·닫힘은 <strong>69/69</strong>개가 일치했습니다.</p>
-<details><summary>시연 0 · 23개 표본 · RMSE 0.0178 rad</summary><a href="episode_0.npz">예측 및 정답 배열</a><img loading="lazy" src="episode_0.png" alt="시연 0의 관절 및 그리퍼 예측과 정답"></details><details><summary>시연 50 · 16개 표본 · RMSE 0.0202 rad</summary><a href="episode_50.npz">예측 및 정답 배열</a><img loading="lazy" src="episode_50.png" alt="시연 50의 관절 및 그리퍼 예측과 정답"></details><details><summary>시연 99 · 15개 표본 · RMSE 0.0173 rad</summary><a href="episode_99.npz">예측 및 정답 배열</a><img loading="lazy" src="episode_99.png" alt="시연 99의 관절 및 그리퍼 예측과 정답"></details><details><summary>시연 149 · 15개 표본 · RMSE 0.0229 rad</summary><a href="episode_149.npz">예측 및 정답 배열</a><img loading="lazy" src="episode_149.png" alt="시연 149의 관절 및 그리퍼 예측과 정답"></details>
-<h2>Closed-loop</h2>
-<p>Isaac Sim에서 두 카메라와 관절 상태를 동기화하고, 전체 지시문으로 매 추론마다 subtask를 생성했습니다.
-절대 관절 위치 청크 50개 중 16개를 15 Hz로 실행한 뒤 새 관측을 입력했습니다.
-최대 시뮬레이션 시간은 120초이며, 세 대상 블록이 그릇에 1초간 유지되고 금지 블록이 밖에 있어야 성공입니다.</p>
-<p><strong>성공 20/20</strong></p>
-<table><thead><tr><th>시드</th><th>금지색</th><th>결과</th><th>최대 투입</th><th>시간</th></tr></thead>
-<tbody><tr><th scope="row">1000</th><td>빨강</td><td>성공</td><td>3/3</td><td>18.53초</td></tr><tr><th scope="row">1001</th><td>파랑</td><td>성공</td><td>3/3</td><td>17.07초</td></tr><tr><th scope="row">1002</th><td>초록</td><td>성공</td><td>3/3</td><td>24.53초</td></tr><tr><th scope="row">1003</th><td>노랑</td><td>성공</td><td>3/3</td><td>17.87초</td></tr><tr><th scope="row">1004</th><td>빨강</td><td>성공</td><td>3/3</td><td>23.27초</td></tr><tr><th scope="row">1005</th><td>파랑</td><td>성공</td><td>3/3</td><td>15.73초</td></tr><tr><th scope="row">1006</th><td>초록</td><td>성공</td><td>3/3</td><td>16.40초</td></tr><tr><th scope="row">1007</th><td>노랑</td><td>성공</td><td>3/3</td><td>17.13초</td></tr><tr><th scope="row">1008</th><td>빨강</td><td>성공</td><td>3/3</td><td>17.80초</td></tr><tr><th scope="row">1009</th><td>파랑</td><td>성공</td><td>3/3</td><td>16.80초</td></tr><tr><th scope="row">1010</th><td>초록</td><td>성공</td><td>3/3</td><td>16.27초</td></tr><tr><th scope="row">1011</th><td>노랑</td><td>성공</td><td>3/3</td><td>16.53초</td></tr><tr><th scope="row">1012</th><td>빨강</td><td>성공</td><td>3/3</td><td>17.53초</td></tr><tr><th scope="row">1013</th><td>파랑</td><td>성공</td><td>3/3</td><td>20.27초</td></tr><tr><th scope="row">1014</th><td>초록</td><td>성공</td><td>3/3</td><td>15.07초</td></tr><tr><th scope="row">1015</th><td>노랑</td><td>성공</td><td>3/3</td><td>15.53초</td></tr><tr><th scope="row">1016</th><td>빨강</td><td>성공</td><td>3/3</td><td>17.27초</td></tr><tr><th scope="row">1017</th><td>파랑</td><td>성공</td><td>3/3</td><td>17.07초</td></tr><tr><th scope="row">1018</th><td>초록</td><td>성공</td><td>3/3</td><td>21.47초</td></tr><tr><th scope="row">1019</th><td>노랑</td><td>성공</td><td>3/3</td><td>22.60초</td></tr></tbody></table>
-<h3>시드 1000</h3><video controls preload="none" playsinline src="subtask-1000.mp4" aria-label="시드 1000 시뮬레이션 영상"></video><h3>시드 1001</h3><video controls preload="none" playsinline src="subtask-1001.mp4" aria-label="시드 1001 시뮬레이션 영상"></video><h3>시드 1002</h3><video controls preload="none" playsinline src="subtask-1002.mp4" aria-label="시드 1002 시뮬레이션 영상"></video><h3>시드 1003</h3><video controls preload="none" playsinline src="subtask-1003.mp4" aria-label="시드 1003 시뮬레이션 영상"></video><h3>시드 1004</h3><video controls preload="none" playsinline src="subtask-1004.mp4" aria-label="시드 1004 시뮬레이션 영상"></video><h3>시드 1005</h3><video controls preload="none" playsinline src="subtask-1005.mp4" aria-label="시드 1005 시뮬레이션 영상"></video><h3>시드 1006</h3><video controls preload="none" playsinline src="subtask-1006.mp4" aria-label="시드 1006 시뮬레이션 영상"></video><h3>시드 1007</h3><video controls preload="none" playsinline src="subtask-1007.mp4" aria-label="시드 1007 시뮬레이션 영상"></video><h3>시드 1008</h3><video controls preload="none" playsinline src="subtask-1008.mp4" aria-label="시드 1008 시뮬레이션 영상"></video><h3>시드 1009</h3><video controls preload="none" playsinline src="subtask-1009.mp4" aria-label="시드 1009 시뮬레이션 영상"></video><h3>시드 1010</h3><video controls preload="none" playsinline src="subtask-1010.mp4" aria-label="시드 1010 시뮬레이션 영상"></video><h3>시드 1011</h3><video controls preload="none" playsinline src="subtask-1011.mp4" aria-label="시드 1011 시뮬레이션 영상"></video><h3>시드 1012</h3><video controls preload="none" playsinline src="subtask-1012.mp4" aria-label="시드 1012 시뮬레이션 영상"></video><h3>시드 1013</h3><video controls preload="none" playsinline src="subtask-1013.mp4" aria-label="시드 1013 시뮬레이션 영상"></video><h3>시드 1014</h3><video controls preload="none" playsinline src="subtask-1014.mp4" aria-label="시드 1014 시뮬레이션 영상"></video><h3>시드 1015</h3><video controls preload="none" playsinline src="subtask-1015.mp4" aria-label="시드 1015 시뮬레이션 영상"></video><h3>시드 1016</h3><video controls preload="none" playsinline src="subtask-1016.mp4" aria-label="시드 1016 시뮬레이션 영상"></video><h3>시드 1017</h3><video controls preload="none" playsinline src="subtask-1017.mp4" aria-label="시드 1017 시뮬레이션 영상"></video><h3>시드 1018</h3><video controls preload="none" playsinline src="subtask-1018.mp4" aria-label="시드 1018 시뮬레이션 영상"></video><h3>시드 1019</h3><video controls preload="none" playsinline src="subtask-1019.mp4" aria-label="시드 1019 시뮬레이션 영상"></video>
-</main></html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Isaac Sim에서 평가한 Panda π₀.₅ Subtask 10k의 시연 20편과 평가 결과입니다.">
+  <title>Exclusion Pick-and-Place · Panda Subtask 10k</title>
+  <link rel="stylesheet" href="../evaluation.css">
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap">
+      <span class="brand">ISAAC SIM / POLICY EVALUATION</span>
+      <nav aria-label="평가 결과"><a href="../">전체 평가</a> · <a href="#rollouts">시연 영상</a> · <a href="#results">실행 결과</a> · <a href="#open-loop">오픈루프</a></nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="title">
+      <p class="eyebrow">FRANKA PANDA · π₀.₅ · CLOSED-LOOP ROLLOUTS</p>
+      <h1 id="title">Exclusion<br>Pick-and-Place</h1>
+      <p>텔레옵 시연 198개로 전체 미세조정한 Panda π₀.₅ Subtask 10k의 평가입니다. 지정된 한 색을 남기고 나머지 세 블록을 그릇에 넣습니다.</p>
+      <span class="chip">Panda Subtask · 10,000 step</span>
+    </section>
+    <section class="panel" id="rollouts" aria-labelledby="rollouts-title">
+      <h2 id="rollouts-title">시연 영상</h2>
+      <div class="summary">
+        <div class="stat"><strong>20/20</strong><span>과제 성공</span></div>
+        <div class="stat"><strong>18.24초</strong><span>평균 완료 시간</span></div>
+        <div class="stat"><strong>1000–1019</strong><span>평가 시드</span></div>
+      </div>
+      <div class="comparison">
+        <article class="clip" id="seed-1000">
+          <header><h3>시드 1000</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1000 평가 영상"><source src="subtask-1000.mp4" type="video/mp4"></video></div>
+          <p>빨강 제외 · 3/3 투입 · 18.53초</p>
+        </article>
+        <article class="clip" id="seed-1001">
+          <header><h3>시드 1001</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1001 평가 영상"><source src="subtask-1001.mp4" type="video/mp4"></video></div>
+          <p>파랑 제외 · 3/3 투입 · 17.07초</p>
+        </article>
+        <article class="clip" id="seed-1002">
+          <header><h3>시드 1002</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1002 평가 영상"><source src="subtask-1002.mp4" type="video/mp4"></video></div>
+          <p>초록 제외 · 3/3 투입 · 24.53초</p>
+        </article>
+        <article class="clip" id="seed-1003">
+          <header><h3>시드 1003</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1003 평가 영상"><source src="subtask-1003.mp4" type="video/mp4"></video></div>
+          <p>노랑 제외 · 3/3 투입 · 17.87초</p>
+        </article>
+        <article class="clip" id="seed-1004">
+          <header><h3>시드 1004</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1004 평가 영상"><source src="subtask-1004.mp4" type="video/mp4"></video></div>
+          <p>빨강 제외 · 3/3 투입 · 23.27초</p>
+        </article>
+        <article class="clip" id="seed-1005">
+          <header><h3>시드 1005</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1005 평가 영상"><source src="subtask-1005.mp4" type="video/mp4"></video></div>
+          <p>파랑 제외 · 3/3 투입 · 15.73초</p>
+        </article>
+        <article class="clip" id="seed-1006">
+          <header><h3>시드 1006</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1006 평가 영상"><source src="subtask-1006.mp4" type="video/mp4"></video></div>
+          <p>초록 제외 · 3/3 투입 · 16.40초</p>
+        </article>
+        <article class="clip" id="seed-1007">
+          <header><h3>시드 1007</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1007 평가 영상"><source src="subtask-1007.mp4" type="video/mp4"></video></div>
+          <p>노랑 제외 · 3/3 투입 · 17.13초</p>
+        </article>
+        <article class="clip" id="seed-1008">
+          <header><h3>시드 1008</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1008 평가 영상"><source src="subtask-1008.mp4" type="video/mp4"></video></div>
+          <p>빨강 제외 · 3/3 투입 · 17.80초</p>
+        </article>
+        <article class="clip" id="seed-1009">
+          <header><h3>시드 1009</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1009 평가 영상"><source src="subtask-1009.mp4" type="video/mp4"></video></div>
+          <p>파랑 제외 · 3/3 투입 · 16.80초</p>
+        </article>
+        <article class="clip" id="seed-1010">
+          <header><h3>시드 1010</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1010 평가 영상"><source src="subtask-1010.mp4" type="video/mp4"></video></div>
+          <p>초록 제외 · 3/3 투입 · 16.27초</p>
+        </article>
+        <article class="clip" id="seed-1011">
+          <header><h3>시드 1011</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1011 평가 영상"><source src="subtask-1011.mp4" type="video/mp4"></video></div>
+          <p>노랑 제외 · 3/3 투입 · 16.53초</p>
+        </article>
+        <article class="clip" id="seed-1012">
+          <header><h3>시드 1012</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1012 평가 영상"><source src="subtask-1012.mp4" type="video/mp4"></video></div>
+          <p>빨강 제외 · 3/3 투입 · 17.53초</p>
+        </article>
+        <article class="clip" id="seed-1013">
+          <header><h3>시드 1013</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1013 평가 영상"><source src="subtask-1013.mp4" type="video/mp4"></video></div>
+          <p>파랑 제외 · 3/3 투입 · 20.27초</p>
+        </article>
+        <article class="clip" id="seed-1014">
+          <header><h3>시드 1014</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1014 평가 영상"><source src="subtask-1014.mp4" type="video/mp4"></video></div>
+          <p>초록 제외 · 3/3 투입 · 15.07초</p>
+        </article>
+        <article class="clip" id="seed-1015">
+          <header><h3>시드 1015</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1015 평가 영상"><source src="subtask-1015.mp4" type="video/mp4"></video></div>
+          <p>노랑 제외 · 3/3 투입 · 15.53초</p>
+        </article>
+        <article class="clip" id="seed-1016">
+          <header><h3>시드 1016</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1016 평가 영상"><source src="subtask-1016.mp4" type="video/mp4"></video></div>
+          <p>빨강 제외 · 3/3 투입 · 17.27초</p>
+        </article>
+        <article class="clip" id="seed-1017">
+          <header><h3>시드 1017</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1017 평가 영상"><source src="subtask-1017.mp4" type="video/mp4"></video></div>
+          <p>파랑 제외 · 3/3 투입 · 17.07초</p>
+        </article>
+        <article class="clip" id="seed-1018">
+          <header><h3>시드 1018</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1018 평가 영상"><source src="subtask-1018.mp4" type="video/mp4"></video></div>
+          <p>초록 제외 · 3/3 투입 · 21.47초</p>
+        </article>
+        <article class="clip" id="seed-1019">
+          <header><h3>시드 1019</h3><span class="chip">성공</span></header>
+          <div class="film"><video controls preload="none" playsinline aria-label="시드 1019 평가 영상"><source src="subtask-1019.mp4" type="video/mp4"></video></div>
+          <p>노랑 제외 · 3/3 투입 · 22.60초</p>
+        </article>
+      </div>
+    </section>
+    <section class="panel" id="results" aria-labelledby="results-title">
+      <h2 id="results-title">평가 결과</h2>
+      <p class="muted">두 카메라와 관절 상태를 동기화하고, 전체 지시문으로 매 요청마다 subtask를 생성했습니다. 절대 관절 위치 50개 중 16개를 15 Hz로 실행한 뒤 새 관측을 입력했습니다. 시뮬레이션은 최대 120초이며 성공 상태를 1초간 유지해야 합니다.</p>
+      <p><a href="results.json">평가 결과와 추론 요청 기록 JSON</a></p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">시드</th><th scope="col">금지색</th><th scope="col">결과</th><th scope="col">대상 블록 투입</th><th scope="col">시뮬레이션 시간</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><a href="#seed-1000">1000</a></th><td>빨강</td><td>성공</td><td>3/3</td><td>18.53초</td></tr>
+            <tr><th scope="row"><a href="#seed-1001">1001</a></th><td>파랑</td><td>성공</td><td>3/3</td><td>17.07초</td></tr>
+            <tr><th scope="row"><a href="#seed-1002">1002</a></th><td>초록</td><td>성공</td><td>3/3</td><td>24.53초</td></tr>
+            <tr><th scope="row"><a href="#seed-1003">1003</a></th><td>노랑</td><td>성공</td><td>3/3</td><td>17.87초</td></tr>
+            <tr><th scope="row"><a href="#seed-1004">1004</a></th><td>빨강</td><td>성공</td><td>3/3</td><td>23.27초</td></tr>
+            <tr><th scope="row"><a href="#seed-1005">1005</a></th><td>파랑</td><td>성공</td><td>3/3</td><td>15.73초</td></tr>
+            <tr><th scope="row"><a href="#seed-1006">1006</a></th><td>초록</td><td>성공</td><td>3/3</td><td>16.40초</td></tr>
+            <tr><th scope="row"><a href="#seed-1007">1007</a></th><td>노랑</td><td>성공</td><td>3/3</td><td>17.13초</td></tr>
+            <tr><th scope="row"><a href="#seed-1008">1008</a></th><td>빨강</td><td>성공</td><td>3/3</td><td>17.80초</td></tr>
+            <tr><th scope="row"><a href="#seed-1009">1009</a></th><td>파랑</td><td>성공</td><td>3/3</td><td>16.80초</td></tr>
+            <tr><th scope="row"><a href="#seed-1010">1010</a></th><td>초록</td><td>성공</td><td>3/3</td><td>16.27초</td></tr>
+            <tr><th scope="row"><a href="#seed-1011">1011</a></th><td>노랑</td><td>성공</td><td>3/3</td><td>16.53초</td></tr>
+            <tr><th scope="row"><a href="#seed-1012">1012</a></th><td>빨강</td><td>성공</td><td>3/3</td><td>17.53초</td></tr>
+            <tr><th scope="row"><a href="#seed-1013">1013</a></th><td>파랑</td><td>성공</td><td>3/3</td><td>20.27초</td></tr>
+            <tr><th scope="row"><a href="#seed-1014">1014</a></th><td>초록</td><td>성공</td><td>3/3</td><td>15.07초</td></tr>
+            <tr><th scope="row"><a href="#seed-1015">1015</a></th><td>노랑</td><td>성공</td><td>3/3</td><td>15.53초</td></tr>
+            <tr><th scope="row"><a href="#seed-1016">1016</a></th><td>빨강</td><td>성공</td><td>3/3</td><td>17.27초</td></tr>
+            <tr><th scope="row"><a href="#seed-1017">1017</a></th><td>파랑</td><td>성공</td><td>3/3</td><td>17.07초</td></tr>
+            <tr><th scope="row"><a href="#seed-1018">1018</a></th><td>초록</td><td>성공</td><td>3/3</td><td>21.47초</td></tr>
+            <tr><th scope="row"><a href="#seed-1019">1019</a></th><td>노랑</td><td>성공</td><td>3/3</td><td>22.60초</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class="panel" id="open-loop" aria-labelledby="open-loop-title">
+      <h2 id="open-loop-title">오픈루프</h2>
+      <p class="muted">학습 시연 4개를 16프레임 간격으로 읽고 첫 예측 동작을 비교했습니다. 관측 69개의 관절 위치 RMSE는 0.0195 rad이며 그리퍼 열림·닫힘은 69/69개가 일치했습니다.</p>
+      <details>
+        <summary>시연 0 · 23개 표본 · RMSE 0.0178 rad</summary>
+        <figure><a href="episode_0.png"><img src="episode_0.png" alt="시연 0의 관절 및 그리퍼 예측과 정답" loading="lazy"></a></figure>
+        <a href="episode_0.npz">예측 및 정답 배열</a>
+      </details>
+      <details>
+        <summary>시연 50 · 16개 표본 · RMSE 0.0202 rad</summary>
+        <figure><a href="episode_50.png"><img src="episode_50.png" alt="시연 50의 관절 및 그리퍼 예측과 정답" loading="lazy"></a></figure>
+        <a href="episode_50.npz">예측 및 정답 배열</a>
+      </details>
+      <details>
+        <summary>시연 99 · 15개 표본 · RMSE 0.0173 rad</summary>
+        <figure><a href="episode_99.png"><img src="episode_99.png" alt="시연 99의 관절 및 그리퍼 예측과 정답" loading="lazy"></a></figure>
+        <a href="episode_99.npz">예측 및 정답 배열</a>
+      </details>
+      <details>
+        <summary>시연 149 · 15개 표본 · RMSE 0.0229 rad</summary>
+        <figure><a href="episode_149.png"><img src="episode_149.png" alt="시연 149의 관절 및 그리퍼 예측과 정답" loading="lazy"></a></figure>
+        <a href="episode_149.npz">예측 및 정답 배열</a>
+      </details>
+    </section>
+  </main>
+  <footer><div class="wrap">Isaac Sim · Franka Panda · Exclusion Pick-and-Place</div></footer>
+</body>
+</html>

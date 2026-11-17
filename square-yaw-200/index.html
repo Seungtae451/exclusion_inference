@@ -5,69 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Isaac Sim의 Exclusion Pick-and-Place에서 두 π₀.₅ 정책을 같은 초기 배치로 비교합니다.">
   <title>Exclusion Pick-and-Place · π₀.₅ 평가</title>
-  <style>
-    :root { color-scheme:light; --paper:#f5f3eb; --ink:#172522; --muted:#53605b; --line:#d6dbce; --green:#174b3c; --chip:#e1eddf; --white:#fffefa; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.65 system-ui,sans-serif; }
-    a { color:inherit; }
-    button, select { font:inherit; }
-    .wrap { width:min(1120px, calc(100% - 48px)); margin:auto; }
-    .masthead { border-bottom:1px solid var(--line); }
-    .masthead .wrap { min-height:64px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
-    .brand { color:var(--green); font:700 12px/1.4 ui-monospace,monospace; letter-spacing:.12em; }
-    .masthead a { font-size:14px; text-decoration:none; }
-    .hero { padding:clamp(48px,9vw,108px) 0 45px; }
-    .eyebrow { margin:0 0 12px; color:var(--green); font:700 12px/1.5 ui-monospace,monospace; letter-spacing:.14em; }
-    h1,h2,h3,p { margin-top:0; }
-    h1,h2 { line-height:1.1; letter-spacing:-.045em; }
-    h1 { max-width:870px; margin-bottom:20px; font-size:clamp(41px,8vw,90px); }
-    h2 { font-size:clamp(27px,4vw,43px); margin-bottom:12px; }
-    h3 { margin:0; font-size:18px; }
-    .hero p:not(.eyebrow), .muted { color:var(--muted); }
-    .hero p:not(.eyebrow) { max-width:720px; font-size:clamp(15px,2.2vw,19px); }
-    .panel { border-top:1px solid var(--line); padding:38px 0; }
-    .section-top { display:flex; align-items:end; justify-content:space-between; gap:16px; flex-wrap:wrap; }
-    .section-top p { margin-bottom:15px; }
-    .summary { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:20px; }
-    .stat,.clip { border:1px solid var(--line); border-radius:14px; background:var(--white); }
-    .stat { padding:17px; }
-    .stat strong { display:block; color:var(--green); font-size:clamp(24px,4vw,38px); line-height:1.25; font-variant-numeric:tabular-nums; }
-    .stat span { font-size:13px; color:var(--muted); }
-    .comparison { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; }
-    .clip { overflow:hidden; }
-    .clip header { padding:15px 17px; display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap; }
-    .chip { display:inline-flex; align-items:center; border-radius:100px; background:var(--chip); color:var(--green); padding:2px 9px; font-size:12px; font-weight:650; }
-    .film { aspect-ratio:4/3; background:#192622; color:#e2eae3; display:grid; place-items:center; text-align:center; }
-    .film video { display:block; width:100%; height:100%; object-fit:contain; }
-    .clip p { margin:0; padding:12px 17px; font-size:14px; color:var(--muted); }
-    .clip .film p { color:inherit; }
-    label { display:grid; gap:4px; color:var(--muted); font-size:13px; }
-    select { min-width:180px; padding:8px 32px 8px 10px; border:1px solid var(--line); border-radius:8px; background:var(--white); color:var(--ink); }
-    .table-scroll { overflow-x:auto; }
-    table { width:100%; border-collapse:collapse; min-width:410px; font-variant-numeric:tabular-nums; }
-    th,td { padding:10px 12px; border-bottom:1px solid var(--line); text-align:left; }
-    th { font-size:13px; color:var(--muted); }
-    td { font-size:14px; }
-    .method { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-    .method p { color:var(--muted); margin:8px 0 0; }
-    footer { padding:24px 0 36px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
-    :focus-visible { outline:2px solid var(--green); outline-offset:3px; }
-
-    #teleop-subtask-40k details, #libero-style details, #open-loop details { border-top:1px solid var(--line); padding:12px 0; }
-    #teleop-subtask-40k summary, #libero-style summary, #open-loop summary { cursor:pointer; font-weight:600; }
-    #teleop-subtask-40k figure, #open-loop figure { margin:12px 0 0; }
-    #open-loop figcaption { margin-bottom:6px; }
-    #teleop-subtask-40k img, #open-loop img { display:block; width:100%; height:auto; background:var(--white); }
-    .open-loop-note { margin-top:14px; }
-    @media (min-width:880px) { .open-loop-comparison { grid-template-columns:repeat(3,minmax(0,1fr)); } }
-    @media (max-width:650px) {
-      .wrap { width:calc(100% - 30px); }
-      .comparison,.method { grid-template-columns:1fr; }
-      .summary { gap:7px; }
-      .stat { padding:10px 7px; }
-      .stat span { font-size:11px; }
-    }
-  </style>
+  <link rel="stylesheet" href="./evaluation.css">
   <script src="./report.js" defer></script>
 </head>
 <body>
