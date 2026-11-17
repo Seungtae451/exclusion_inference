@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panda π₀.₅ Subtask 10k 평가</title>
+<style>
+body {font: 1rem/1.6 system-ui, sans-serif; max-width: 62rem; margin: 2rem auto; padding: 0 1rem; color: #20252a}
+table {border-collapse: collapse} td, th {text-align: left; border-bottom: 1px solid #ddd; padding: .4rem .8rem}
+video, img {display: block; width: 100%; max-width: 52rem; margin: .6rem 0} details {margin: .8rem 0}
+</style>
+<main>
+<p><a href="../">Exclusion Pick-and-Place 평가</a></p>
+<h1>Panda π₀.₅ Subtask 10k 평가</h1>
+<p>텔레옵 시연 198개로 π₀.₅ Base를 전체 미세조정한 10,000-step 체크포인트입니다.
+<a href="results.json">평가 결과와 추론 요청 기록 JSON</a></p>
+<h2>Open-loop</h2>
+<p>학습 시연 0, 50, 99, 149에서 16프레임마다 첫 예측 행동을 실제 명령과 비교했습니다.
+총 69개 관측에서 7개 관절의 절대 위치 RMSE는 <strong>0.0195 rad</strong>이며,
+그리퍼 열림·닫힘은 <strong>69/69</strong>개가 일치했습니다.</p>
+<details><summary>시연 0 · 23개 표본 · RMSE 0.0178 rad</summary><a href="episode_0.npz">예측 및 정답 배열</a><img loading="lazy" src="episode_0.png" alt="시연 0의 관절 및 그리퍼 예측과 정답"></details><details><summary>시연 50 · 16개 표본 · RMSE 0.0202 rad</summary><a href="episode_50.npz">예측 및 정답 배열</a><img loading="lazy" src="episode_50.png" alt="시연 50의 관절 및 그리퍼 예측과 정답"></details><details><summary>시연 99 · 15개 표본 · RMSE 0.0173 rad</summary><a href="episode_99.npz">예측 및 정답 배열</a><img loading="lazy" src="episode_99.png" alt="시연 99의 관절 및 그리퍼 예측과 정답"></details><details><summary>시연 149 · 15개 표본 · RMSE 0.0229 rad</summary><a href="episode_149.npz">예측 및 정답 배열</a><img loading="lazy" src="episode_149.png" alt="시연 149의 관절 및 그리퍼 예측과 정답"></details>
+<h2>Closed-loop</h2>
+<p>Isaac Sim에서 두 카메라와 관절 상태를 동기화하고, 전체 지시문으로 매 추론마다 subtask를 생성했습니다.
+절대 관절 위치 청크 50개 중 16개를 15 Hz로 실행한 뒤 새 관측을 입력했습니다.
+최대 시뮬레이션 시간은 120초이며, 세 대상 블록이 그릇에 1초간 유지되고 금지 블록이 밖에 있어야 성공입니다.</p>
+<p><strong>성공 4/4</strong></p>
+<table><thead><tr><th>시드</th><th>금지색</th><th>결과</th><th>최대 투입</th><th>시간</th></tr></thead>
+<tbody><tr><th scope="row">1000</th><td>빨강</td><td>성공</td><td>3/3</td><td>18.53초</td></tr><tr><th scope="row">1001</th><td>파랑</td><td>성공</td><td>3/3</td><td>17.07초</td></tr><tr><th scope="row">1002</th><td>초록</td><td>성공</td><td>3/3</td><td>24.53초</td></tr><tr><th scope="row">1003</th><td>노랑</td><td>성공</td><td>3/3</td><td>17.87초</td></tr></tbody></table>
+<h3>시드 1000</h3><video controls preload="none" playsinline src="subtask-1000.mp4" aria-label="시드 1000 시뮬레이션 영상"></video><h3>시드 1001</h3><video controls preload="none" playsinline src="subtask-1001.mp4" aria-label="시드 1001 시뮬레이션 영상"></video><h3>시드 1002</h3><video controls preload="none" playsinline src="subtask-1002.mp4" aria-label="시드 1002 시뮬레이션 영상"></video><h3>시드 1003</h3><video controls preload="none" playsinline src="subtask-1003.mp4" aria-label="시드 1003 시뮬레이션 영상"></video>
+</main></html>

@@ -1,0 +1,620 @@
+{
+  "checkpoint_step": 10000,
+  "initial_checkpoint": "pi05_base",
+  "training": "full fine-tune",
+  "demonstrations": 198,
+  "action_representation": "absolute joint position and normalized gripper closure",
+  "action_horizon": 50,
+  "execution_steps": 16,
+  "action_hz": 15,
+  "rtc": false,
+  "camera_sync": true,
+  "max_sim_seconds": 120,
+  "success_hold_seconds": 1,
+  "successes": 4,
+  "open_loop": {
+    "split": "training",
+    "sample_stride": 16,
+    "prediction_index": 0,
+    "samples": 69,
+    "arm_rmse_rad": 0.019489078154967233,
+    "gripper_binary_matches": 69,
+    "gripper_threshold": 0.5,
+    "episodes": [
+      {
+        "episode": 0,
+        "samples": 23,
+        "arm_rmse_rad": 0.01782269466878955,
+        "gripper_binary_matches": 23,
+        "plot": "episode_0.png",
+        "predictions": "episode_0.npz"
+      },
+      {
+        "episode": 50,
+        "samples": 16,
+        "arm_rmse_rad": 0.020216072781584545,
+        "gripper_binary_matches": 16,
+        "plot": "episode_50.png",
+        "predictions": "episode_50.npz"
+      },
+      {
+        "episode": 99,
+        "samples": 15,
+        "arm_rmse_rad": 0.017311842656039828,
+        "gripper_binary_matches": 15,
+        "plot": "episode_99.png",
+        "predictions": "episode_99.npz"
+      },
+      {
+        "episode": 149,
+        "samples": 15,
+        "arm_rmse_rad": 0.02290185041041151,
+        "gripper_binary_matches": 15,
+        "plot": "episode_149.png",
+        "predictions": "episode_149.npz"
+      }
+    ]
+  },
+  "rollouts": [
+    {
+      "seed": 1000,
+      "excluded": "red",
+      "outcome": "success",
+      "max_placed": 3,
+      "elapsed_sim_seconds": 18.53333429992199,
+      "placement_events": [
+        {
+          "color": "blue",
+          "step": 736,
+          "sim_time": 6.133333653211594
+        },
+        {
+          "color": "green",
+          "step": 1544,
+          "sim_time": 12.866667337715626
+        },
+        {
+          "color": "yellow",
+          "step": 2224,
+          "sim_time": 18.53333429992199
+        }
+      ],
+      "inference_round_trip_median_seconds": 1.1592629859223962,
+      "camera_max_lag_seconds": 0.0,
+      "requests": [
+        {
+          "request_index": 0,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 11.545996736036614
+        },
+        {
+          "request_index": 1,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.1653496681246907
+        },
+        {
+          "request_index": 2,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.1459247570019215
+        },
+        {
+          "request_index": 3,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.1382683978881687
+        },
+        {
+          "request_index": 4,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.1629075529053807
+        },
+        {
+          "request_index": 5,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.1483618840575218
+        },
+        {
+          "request_index": 6,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.1568059311248362
+        },
+        {
+          "request_index": 7,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.1603238231036812
+        },
+        {
+          "request_index": 8,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.1552027349825948
+        },
+        {
+          "request_index": 9,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.1595732518471777
+        },
+        {
+          "request_index": 10,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.1638762650545686
+        },
+        {
+          "request_index": 11,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.1596552759874612
+        },
+        {
+          "request_index": 12,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1639135209843516
+        },
+        {
+          "request_index": 13,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1589527199976146
+        },
+        {
+          "request_index": 14,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1587584579829127
+        },
+        {
+          "request_index": 15,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1560510711278766
+        },
+        {
+          "request_index": 16,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1724149140063673
+        },
+        {
+          "request_index": 17,
+          "prompt": "Put all the blocks in the bowl one at a time except the red block",
+          "generated_subtask": "stop",
+          "round_trip_seconds": 0.7432994749397039
+        }
+      ],
+      "video": "subtask-1000.mp4"
+    },
+    {
+      "seed": 1001,
+      "excluded": "blue",
+      "outcome": "success",
+      "max_placed": 3,
+      "elapsed_sim_seconds": 17.066667556762695,
+      "placement_events": [
+        {
+          "color": "red",
+          "step": 664,
+          "sim_time": 5.533333621919155
+        },
+        {
+          "color": "green",
+          "step": 1352,
+          "sim_time": 11.266667254269123
+        },
+        {
+          "color": "yellow",
+          "step": 2048,
+          "sim_time": 17.066667556762695
+        }
+      ],
+      "inference_round_trip_median_seconds": 1.1561030636075884,
+      "camera_max_lag_seconds": 0.0,
+      "requests": [
+        {
+          "request_index": 0,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.1637785420753062
+        },
+        {
+          "request_index": 1,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.1519911321811378
+        },
+        {
+          "request_index": 2,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.145500005921349
+        },
+        {
+          "request_index": 3,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.144312284886837
+        },
+        {
+          "request_index": 4,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.1586461400147527
+        },
+        {
+          "request_index": 5,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.1695059530902654
+        },
+        {
+          "request_index": 6,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.1583259680774063
+        },
+        {
+          "request_index": 7,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.147354109911248
+        },
+        {
+          "request_index": 8,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.1515176829416305
+        },
+        {
+          "request_index": 9,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.149716841056943
+        },
+        {
+          "request_index": 10,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1538801591377705
+        },
+        {
+          "request_index": 11,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1669710171408951
+        },
+        {
+          "request_index": 12,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.158347693970427
+        },
+        {
+          "request_index": 13,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.161817329004407
+        },
+        {
+          "request_index": 14,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1599812540225685
+        },
+        {
+          "request_index": 15,
+          "prompt": "Put all the blocks in the bowl one at a time except the blue block",
+          "generated_subtask": "stop",
+          "round_trip_seconds": 0.6798818011302501
+        }
+      ],
+      "video": "subtask-1001.mp4"
+    },
+    {
+      "seed": 1002,
+      "excluded": "green",
+      "outcome": "success",
+      "max_placed": 3,
+      "elapsed_sim_seconds": 24.533334612846375,
+      "placement_events": [
+        {
+          "color": "red",
+          "step": 680,
+          "sim_time": 5.666666962206364
+        },
+        {
+          "color": "blue",
+          "step": 1256,
+          "sim_time": 10.466667212545872
+        },
+        {
+          "color": "yellow",
+          "step": 2944,
+          "sim_time": 24.533334612846375
+        }
+      ],
+      "inference_round_trip_median_seconds": 1.1471911249682307,
+      "camera_max_lag_seconds": 0.0,
+      "requests": [
+        {
+          "request_index": 0,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.1601433160249144
+        },
+        {
+          "request_index": 1,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.1577338948845863
+        },
+        {
+          "request_index": 2,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.1576505759730935
+        },
+        {
+          "request_index": 3,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.1401860110927373
+        },
+        {
+          "request_index": 4,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.1463233809918165
+        },
+        {
+          "request_index": 5,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.1450461561325938
+        },
+        {
+          "request_index": 6,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.134100231109187
+        },
+        {
+          "request_index": 7,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.1437660751398653
+        },
+        {
+          "request_index": 8,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.141909102909267
+        },
+        {
+          "request_index": 9,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1437504140194505
+        },
+        {
+          "request_index": 10,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1783408061601222
+        },
+        {
+          "request_index": 11,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1387337630148977
+        },
+        {
+          "request_index": 12,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1373107600957155
+        },
+        {
+          "request_index": 13,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.143015872919932
+        },
+        {
+          "request_index": 14,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.1471911249682307
+        },
+        {
+          "request_index": 15,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1515864259563386
+        },
+        {
+          "request_index": 16,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.163036691956222
+        },
+        {
+          "request_index": 17,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1611442000139505
+        },
+        {
+          "request_index": 18,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1514399251900613
+        },
+        {
+          "request_index": 19,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1677484759129584
+        },
+        {
+          "request_index": 20,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1604754079598933
+        },
+        {
+          "request_index": 21,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "put the yellow block in the bowl",
+          "round_trip_seconds": 1.1610272431280464
+        },
+        {
+          "request_index": 22,
+          "prompt": "Put all the blocks in the bowl one at a time except the green block",
+          "generated_subtask": "stop",
+          "round_trip_seconds": 0.6727645278442651
+        }
+      ],
+      "video": "subtask-1002.mp4"
+    },
+    {
+      "seed": 1003,
+      "excluded": "yellow",
+      "outcome": "success",
+      "max_placed": 3,
+      "elapsed_sim_seconds": 17.866667598485947,
+      "placement_events": [
+        {
+          "color": "red",
+          "step": 696,
+          "sim_time": 5.800000302493572
+        },
+        {
+          "color": "blue",
+          "step": 1432,
+          "sim_time": 11.933333955705166
+        },
+        {
+          "color": "green",
+          "step": 2144,
+          "sim_time": 17.866667598485947
+        }
+      ],
+      "inference_round_trip_median_seconds": 1.1628439219202846,
+      "camera_max_lag_seconds": 0.0,
+      "requests": [
+        {
+          "request_index": 0,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.1350162262097
+        },
+        {
+          "request_index": 1,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.1625953849870712
+        },
+        {
+          "request_index": 2,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.1695517499465495
+        },
+        {
+          "request_index": 3,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.1560455749277025
+        },
+        {
+          "request_index": 4,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the red block in the bowl",
+          "round_trip_seconds": 1.1616534560453147
+        },
+        {
+          "request_index": 5,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.1600380528252572
+        },
+        {
+          "request_index": 6,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.155328415101394
+        },
+        {
+          "request_index": 7,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.1666893209330738
+        },
+        {
+          "request_index": 8,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.1549705909565091
+        },
+        {
+          "request_index": 9,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.1661394159309566
+        },
+        {
+          "request_index": 10,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the blue block in the bowl",
+          "round_trip_seconds": 1.1627187910489738
+        },
+        {
+          "request_index": 11,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.1801428841426969
+        },
+        {
+          "request_index": 12,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.1714029309805483
+        },
+        {
+          "request_index": 13,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.1659360900521278
+        },
+        {
+          "request_index": 14,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.18212421098724
+        },
+        {
+          "request_index": 15,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.1628439219202846
+        },
+        {
+          "request_index": 16,
+          "prompt": "Put all the blocks in the bowl one at a time except the yellow block",
+          "generated_subtask": "put the green block in the bowl",
+          "round_trip_seconds": 1.169962896965444
+        }
+      ],
+      "video": "subtask-1003.mp4"
+    }
+  ]
+}
